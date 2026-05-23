@@ -1,0 +1,177 @@
+[
+  {
+    "unitId": 1,
+    "unitTitle": "UNIT 1: Basic of Java",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Programming Languages",
+        "details": {
+          "concept": "Many languages available and each language was invented for a specific purpose. each provide a new and unique set of tools.",
+          "benefits": "Provides structure and modularity to code. Models real-world entities.",
+          "types": { "1": "Machine Language", "2": "Assembly Language", "3": "High Level Language" },
+          "syntax": "",
+          "keywords": "languages, compiler, interpreter, difference",
+          "Important Thing": "Compiler vs Interpreter",
+          "Important Thing Detail": { 
+            "1": { "c": "scans whole program", "i": "One Statment at a time" },
+            "2": { "c": "error shown at end", "i": "error line by line" },
+            "3": { "c": "less execution time", "i": "slow execution" },
+            "4": { "c": "convert source code to object code", "i": "does not convert entire source code to object code" },
+            "5": { "c": "does not require source code for later", "i": "require source code for later" },
+            "6": { "c": "Only execute after whole code compiled", "i": "Execute at each line" },
+            "7": { "c": "Machine code stored in disk", "i": "Machine code does not store anywhere" },
+            "8": { "c": "take large amount of time", "i": "takes less time" },
+            "9": { "c": "more efficient", "i": "less efficient" },
+            "10": { "c": "more utilize cpu", "i": "utilize less cpu" }
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Java Programming Language",
+        "details": {
+          "concept": "Powerful and versatile language developed by James Gosling at Sun Microsystems. Originally called oak renemed in 1995",
+          "benefits": "Powerfull and versatile",
+          "types": "N/A",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "Characteristics",
+          "Important Thing Detail": {
+            "1": "Simple",
+            "2": "Object Oriented",
+            "3": "Distributed",
+            "4": "Platform independent",
+            "5": "Interpreted",
+            "6": "Robust",
+            "7": "Secure",
+            "8": "Architectur neutral",
+            "9": "Portable",
+            "10": "High Performance",
+            "11": "Multi-threaded",
+            "12": "Dynamic"
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Java Platform and Architecture",
+        "details": {
+          "concept": "Java consist of JDK, JRE, JVM, Libraries and Development tools.",
+          "benefits": "Code Reusability, Hierarchy, Modularity",
+          "types": "N/A",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "JDK, JRE, JVM, Libraries and Development tools.",
+          "Important Thing Detail": {
+            "JDK": "It is provide development tools and JRE (Java Runtime Environment)",
+            "JRE": "It is provide Librabries Set and JVM (Java Virtual Machine)",
+            "Working": ".java -> ByteCode (by compiler) -> Run the bytecode file -> Result [Maridian Diagram if possible]"
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Identifiers",
+        "details": {
+          "concept": "Indentifiers are names that identifiy the elements such as classes, methods and variables in program.",
+          "benefits": "Flexibility, Extensibility, Code Simplicity",
+          "types": "N/A",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "What is Allowed?",
+          "Important Thing Detail": {
+            "1": "Only digits, underscores(_) and doller signs($)",
+            "2": "cannot be reserved word.",
+            "3": "Can be any length",
+            "4": "Constant is identifier that respresent permanent value. must be initialized and declared same time."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Data Types",
+        "details": {
+          "concept": "Different data types are allow programmer to store and use data of different types.",
+          "benefits": "Reduces Complexity, Increases Security",
+          "types": "N/A",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "[Maridian diagram if possible!!!]"
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Operators",
+        "details": {
+          "concept": "Oprators are used to perform operations between different oprands.",
+          "benefits": "Achieves Multiple Inheritance, Loose Coupling",
+          "types": "8",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "8 types",
+          "Important Thing Detail": {
+            "1": "Arithmetic Operators",
+            "2": "Relational Operators",
+            "3": "Logical Operators",
+            "4": "Assignment Operators",
+            "5": "Increment and Decrement Operators",
+            "6": "Conditional Operators",
+            "7": "Bitwise Operators",
+            "8": "Special Operators (Instance of, dot operator)"
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Numeric Type Conversion",
+        "details": {
+          "concept": "Casting is an operation that converts a value of one data type into a another data type.",
+          "benefits": "Convert larger type into smaller type.",
+          "types": "N/A",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "What is widening and narrowing?",
+          "Important Thing Detail": {
+            "1": "Casting a type with a smaller range to a type with a larger type is known as widening a type.",
+            "2": "Casting a type with larger range to a type with a small type is known as narrowing a type.",
+            "3": "Example: double d = 4.5; int i = (int)d; //narrowing"
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Get user inputs in java",
+        "details": {
+          "concept": "There is a two ways to take input from user.",
+          "benefits": "N/A",
+          "types": "2",
+          "syntax": "N/A",
+          "keywords": "N/A",
+          "Important Thing": "Describe two ways to take input.",
+          "Important Thing Detail": {
+            "1": "First is By command lien argument: Pass input at time of execution of program.",
+            "2": "Second is By Scanner Class: Scanner class helps to get user input by passing System.in as a constructor argument."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 2,
+    "unitTitle": "UNIT 2: ADVANCED OOP",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Generics",
+        "details": {
+          "concept": "Allows types (classes and interfaces) to be parameters when defining classes, interfaces and methods.",
+          "benefits": "Type Safety, Reusability without casting",
+          "types": "Generic Classes, Generic Methods",
+          "syntax": "class Box<T> { private T t; }",
+          "keywords": "<T>, <E>"
+        }
+      }
+    ]
+  }
+]

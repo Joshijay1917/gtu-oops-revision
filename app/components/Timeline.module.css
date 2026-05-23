@@ -1,0 +1,101 @@
+.timelineContainer {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nodesWrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  min-width: 800px; /* Ensure nodes do not squash on small screens */
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.nodeWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nodeWrapper:last-child {
+  flex: 0;
+}
+
+.nodeContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hexagon {
+  position: relative;
+  width: 60px;
+  height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.nodeContainer:hover .hexagon {
+  transform: scale(1.05);
+}
+
+.hexSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.nodeText {
+  position: relative;
+  z-index: 2;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #94a3b8;
+  transition: color 0.3s ease;
+}
+
+.textActive {
+  color: var(--glow-blue-intense);
+}
+
+.glow {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  background: var(--glow-blue-intense);
+  filter: blur(25px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.connectorContainer {
+  flex: 1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0 -5px; /* Overlap slightly with hex edges */
+  z-index: 1;
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 100%;
+}
