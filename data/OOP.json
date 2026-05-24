@@ -194,18 +194,18 @@
         "topicId": "t9",
         "title": "Differentiate between Object-Oriented Programming (OOP) and Procedure-Oriented Programming (POP)",
         "details": {
-          "concept": "Programming paradigms define the structural approach to solving a problem. Procedure-Oriented Programming focuses on a sequence of functions or procedures operating on data, whereas Object-Oriented Programming models real-world entities by wrapping data and behavior together inside cohesive objects[cite: 1, 4].",
-          "benefits": "Understanding the core differences helps developers select the appropriate architectural design to ensure application scalability, security, and code reusability[cite: 4, 6].",
+          "concept": "Programming paradigms define the structural approach to solving a problem. Procedure-Oriented Programming focuses on a sequence of functions or procedures operating on data, whereas Object-Oriented Programming models real-world entities by wrapping data and behavior together inside cohesive objects.",
+          "benefits": "Understanding the core differences helps developers select the appropriate architectural design to ensure application scalability, security, and code reusability.",
           "types": "2 paradigms",
           "syntax": "// POP Approach: Focus on global data and standalone functions\nvoid calculateArea(double radius) { }\n\n// OOP Approach: Focus on objects containing data and methods\nclass Circle {\n    private double radius;\n    public double getArea() { return radius * radius * Math.PI; }\n}",
           "keywords": "paradigm, POP, OOP, procedures, data hiding, code reuse",
           "Important Thing": "POP vs OOP",
           "Important Thing Detail": {
             "1": { "c": "Follows a Top-Down approach in program design.", "i": "Follows a Bottom-Up approach in program design." },
-            "2": { "c": "The main focus is on doing things, executing functions, and running sequential procedures.", "i": "The main focus is on data security, modeling real-world entities, and manipulating objects[cite: 1, 4]." },
-            "3": { "c": "Provides no direct data hiding capabilities; global data is accessible across various functions, making it less secure.", "i": "Enforces strict data hiding and encapsulation through access specifiers like private, protected, and public[cite: 1, 4]." },
-            "4": { "c": "Does not support native inheritance or polymorphism concepts, leading to lower code reusability.", "i": "Supports robust reusability and dynamic behavior through inheritance, interfaces, overloading, and overriding mechanisms[cite: 4]." },
-            "5": { "c": "Divided into small individual parts called functions or sub-processes.", "i": "Divided into highly cohesive, self-contained interactive units called objects[cite: 1, 4]." }
+            "2": { "c": "The main focus is on doing things, executing functions, and running sequential procedures.", "i": "The main focus is on data security, modeling real-world entities, and manipulating objects." },
+            "3": { "c": "Provides no direct data hiding capabilities; global data is accessible across various functions, making it less secure.", "i": "Enforces strict data hiding and encapsulation through access specifiers like private, protected, and public." },
+            "4": { "c": "Does not support native inheritance or polymorphism concepts, leading to lower code reusability.", "i": "Supports robust reusability and dynamic behavior through inheritance, interfaces, overloading, and overriding mechanisms." },
+            "5": { "c": "Divided into small individual parts called functions or sub-processes.", "i": "Divided into highly cohesive, self-contained interactive units called objects." }
           },
           "diagram": "graph TD\n  subgraph POP [Procedure-Oriented: Top-Down]\n    MainProgram[Main Program] --> Func1(Function 1)\n    MainProgram --> Func2(Function 2)\n    Func1 & Func2 --> GlobalData[(Global Data Shared Unsafely)]\n  end\n  subgraph OOP [Object-Oriented: Bottom-Up]\n    Obj1[Object 1: Data + Methods Combined] <--> InteractivePipes((Secure Method Communication))\n    Obj2[Object 2: Data + Methods Combined] <--> InteractivePipes\n  end"
         }
@@ -2025,7 +2025,7 @@
           "keywords": "RandomAccessFile, file pointer, seek position, mode r, mode rw",
           "Important Thing": "Pointer Adjustments",
           "Important Thing Detail": {
-            "1": "Modes: Can be opened under read-only 'r' or read-write 'rw' access behaviors[cite: 1, 8].",
+            "1": "Modes: Can be opened under read-only 'r' or read-write 'rw' access behaviors.",
             "2": "getFilePointer(): Returns the active byte offset from the start of the file where the next operation will occur.",
             "3": "seek(long pos): Moves the internal file pointer to a precise target byte position.",
             "4": "If you read a 4-byte integer using readInt(), the file pointer automatically advances 4 bytes ahead."
@@ -2070,7 +2070,7 @@
         "title": "Generic Class",
         "details": {
           "concept": "A class that features a type parameter placeholder, allowing it to adapt safely to various reference types specified during instantiation.",
-          "benefits": "Enables the creation of reusable, type-safe structures that support automatic boxing and unboxing[cite: 7, 8].",
+          "benefits": "Enables the creation of reusable, type-safe structures that support automatic boxing and unboxing.",
           "types": "N/A",
           "syntax": "class MyClass<T> {\n    private T content;\n    public T getValue() { return content; }\n}",
           "keywords": "generic class, type parameter, reference type, autoboxing",
@@ -2239,7 +2239,7 @@
         "title": "Lifecycle of JavaFX Application",
         "details": {
           "concept": "The runtime operational lifecycle steps managed sequentially by the JVM whenever a JavaFX application is launched.",
-          "benefits": "Provides predictable hooks to initialize background resources and clean up assets during termination[cite: 6, 9].",
+          "benefits": "Provides predictable hooks to initialize background resources and clean up assets during termination.",
           "types": "N/A",
           "syntax": "public static void main(String[] args) {\n    launch(args); // Launches the execution lifecycle\n}",
           "keywords": "lifecycle, launch, init, start, stop, Platform.exit",
@@ -2280,7 +2280,7 @@
         "title": "Steps to build application",
         "details": {
           "concept": "The sequential coding blueprint required to construct, connect, and safely render a JavaFX program interface screen.",
-          "benefits": "Provides a standard implementation checklist for starting a GUI application[cite: 6, 9].",
+          "benefits": "Provides a standard implementation checklist for starting a GUI application.",
           "types": "3 foundational steps",
           "syntax": "public void start(Stage primaryStage) {\n    Group root = new Group(); // Step 1\n    Scene scene = new Scene(root, 400, 300); // Step 2\n    primaryStage.setScene(scene); // Step 3\n    primaryStage.show();\n}",
           "keywords": "build steps, instantiate root, configure scene, show stage",
@@ -2414,7 +2414,7 @@
         "title": "BorderPane",
         "details": {
           "concept": "A layout manager that partitions its space into five distinct sub-regions: Top, Bottom, Left, Right, and Center.",
-          "benefits": "Provides an ideal structure for standard application windows (e.g., top menu, bottom status bar, center content)[cite: 2, 9].",
+          "benefits": "Provides an ideal structure for standard application windows (e.g., top menu, bottom status bar, center content).",
           "types": "5 region locations",
           "syntax": "BorderPane bp = new BorderPane();\nbp.setTop(new MenuBar());\nbp.setCenter(new TextArea());",
           "keywords": "BorderPane, layout regions, region positioning, top, center, bottom",
