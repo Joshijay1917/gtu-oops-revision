@@ -65,9 +65,9 @@
           "Important Thing": "JDK, JRE, JVM, Libraries and Development tools.",
           "Important Thing Detail": {
             "JDK": "It is provide development tools and JRE (Java Runtime Environment)",
-            "JRE": "It is provide Librabries Set and JVM (Java Virtual Machine)",
-            "Working": ".java -> ByteCode (by compiler) -> Run the bytecode file -> Result [Maridian Diagram if possible]"
-          }
+            "JRE": "It is provide Librabries Set and JVM (Java Virtual Machine)"
+          },
+          "diagram": "graph LR\n  A[Source Code .java] -->|Compiler| B[ByteCode .class]\n  B -->|JVM| C[Machine Code]\n  C --> D[Result]"
         }
       },
       {
@@ -96,8 +96,8 @@
           "benefits": "Reduces Complexity, Increases Security",
           "types": "N/A",
           "syntax": "N/A",
-          "keywords": "N/A",
-          "Important Thing": "[Maridian diagram if possible!!!]"
+          "Important Thing": "Data Types Hierarchy",
+          "diagram": "graph TD\n  A[Data Types] --> B[Primitive]\n  A --> C[Non-Primitive]\n  B --> D[Boolean]\n  B --> E[Numeric]\n  E --> F[Character]\n  E --> G[Integral]\n  G --> H[Integer]\n  G --> I[Floating-point]\n  C --> J[String]\n  C --> K[Array]\n  C --> L[Class]"
         }
       },
       {
@@ -159,17 +159,2346 @@
   },
   {
     "unitId": 2,
-    "unitTitle": "UNIT 2: ADVANCED OOP",
+    "unitTitle": "UNIT 2: CONDITIONAL AND LOOPING STATEMENTS",
     "topics": [
       {
         "topicId": "t1",
-        "title": "Generics",
+        "title": "Selections",
         "details": {
-          "concept": "Allows types (classes and interfaces) to be parameters when defining classes, interfaces and methods.",
-          "benefits": "Type Safety, Reusability without casting",
-          "types": "Generic Classes, Generic Methods",
-          "syntax": "class Box<T> { private T t; }",
-          "keywords": "<T>, <E>"
+          "concept": "Program can decide which statements to execute based on a condition.",
+          "benefits": "We can choose what to do at perticular condition!",
+          "types": "6",
+          "syntax": "if (score >= 90) {\n    System.out.println(\"A\");\n} else if (score >= 80) {\n    System.out.println(\"B\");\n} else {\n    System.out.println(\"C\");\n}",
+          "keywords": "if statement, switch, conditional statements",
+          "Important Thing": "Different types of selection statements",
+          "Important Thing Detail": {
+            "1": "one-way if statements",
+            "2": "two-way if-else statements",
+            "3": "nested if statements",
+            "4": "multi-way if-else statements",
+            "5": "switch statements",
+            "6": "conditional expressions"
+          },
+          "diagram": "graph TD\n  Start --> Cond{Condition}\n  Cond -- True --> Action1[Execute Block 1]\n  Cond -- False --> Action2[Execute Block 2]\n  Action1 --> End\n  Action2 --> End"
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Logical Operators",
+        "details": {
+          "concept": "Logical Operators !, &&, || and ^ can be used to create a compound Boolean expressions.",
+          "benefits": "We can create boolean expressions!",
+          "types": "N/A",
+          "syntax": "if (age >= 18 && hasLicense) {\n    System.out.println(\"Can drive\");\n}",
+          "keywords": "N/A",
+          "Important Thing": "Oprators & Description",
+          "Important Thing Detail": {
+            "1": { "c": "!", "i": "logical negation" },
+            "2": { "c": "&&", "i": "logical conjunction" },
+            "3": { "c": "||", "i": "logical disjunction" },
+            "4": { "c": "^", "i": "logical exclusion" }
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Switch Statements",
+        "details": {
+          "concept": "A switch statements executes statements based on the value of a variable or an expression.",
+          "benefits": "Select statements based on a one variable or expression.",
+          "types": "N/A",
+          "syntax": "switch (day) {\n    case 1:\n        System.out.println(\"Monday\");\n        break;\n    case 2:\n        System.out.println(\"Tuesday\");\n        break;\n    default:\n        System.out.println(\"Weekend\");\n}",
+          "keywords": "N/A",
+          "Important Thing": "Some important points",
+          "Important Thing Detail": {
+            "1": "switch-expression Must yield a value of char, byte, short, int or string type.",
+            "2": "value1,...,valueN must have the same data type as switch-expression.",
+            "3": "The break statement is optional it immediatly ends the execution."
+          },
+          "diagram": "graph TD\n  Start --> Switch{Expression}\n  Switch -- Case 1 --> A[Block 1]\n  Switch -- Case 2 --> B[Block 2]\n  Switch -- Default --> C[Default Block]\n  A --> End\n  B --> End\n  C --> End"
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Conditional Expressions",
+        "details": {
+          "concept": "A conditional expression evaluates an expression based on a condition.",
+          "benefits": "We can write it in only one line.",
+          "types": "N/A",
+          "syntax": "// (boolean-expression) ? true-expression : false-expression\nint max = (num1 > num2) ? num1 : num2;",
+          "keywords": "N/A",
+          "Important Thing": "Examples",
+          "Important Thing Detail": {
+            "1": "Assign larger number: max = (num1 > num2) ? num1 : num2;",
+            "2": "Check even or odd: (num % 2 == 0) ? 'even' : 'odd' "
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Loops",
+        "details": {
+          "concept": "Loops are constructs that control repeated execution of a block of statements.",
+          "benefits": "We can run a block of code multiple times.",
+          "types": "3 loops",
+          "syntax": "// For loop\nfor (int i = 0; i < 5; i++) {\n    System.out.println(i);\n}\n\n// While loop\nint j = 0;\nwhile (j < 5) {\n    System.out.println(j);\n    j++;\n} \n\n//do while loop\n int k=0;\n do{\n    System.out.println(k);\n    k++;\n } while(k < 5);",
+          "keywords": "N/A",
+          "Important Thing": "Different Loops",
+          "Important Thing Detail": {
+            "1": { "While": "Evaluates condition before execution"},
+            "2": { "do-While": "Evaluates condition after execution"},
+            "3": { "for": "Combines init, condition, and update"}
+          },
+          "diagram": "graph TD\n  Start --> Cond{Condition}\n  Cond -- True --> Body[Loop Body]\n  Body --> Cond\n  Cond -- False --> End"
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Break and Continue",
+        "details": {
+          "concept": "It is used to control execution of program.",
+          "benefits": "N/A",
+          "types": "N/A",
+          "syntax": "for (int i = 1; i <= 10; i++) {\n    if (i == 5) continue; // Skips 5\n    if (i == 8) break;    // Stops loop at 8\n    System.out.println(i);\n}",
+          "keywords": "N/A",
+          "Important Thing": "Statements",
+          "Important Thing Detail": {
+            "1": { "Break" : "It is used to immediately terminate the loop."},
+            "2": { "Continue" : "It is used to skip current iteration of loop."},
+            "3": { "Labelled Break" : "It is used to terminates the lablled loop, not just inner loop."},
+            "4": { "Labelled Continue" : "It is used to skip current iteration of lablled loop, not just inner loop."}
+          },
+          "diagram": "graph TD\n  Start --> Cond{Condition}\n  Cond -- True --> Body[Loop Body]\n  Body --> Check{Break or Continue?}\n  Check -- Break --> End\n  Check -- Continue --> Cond\n  Check -- Normal --> Cond\n  Cond -- False --> End"
+        }
+      }
+    ]
+  },
+  {
+  "unitId": 3,
+  "unitTitle": "UNIT 3: OBJECTS AND CLASSES",
+  "topics": [
+    {
+      "topicId": "t1",
+      "title": "Defining Classes for Objects",
+      "details": {
+        "concept": "Object-oriented programming (OOP) involves using objects that represent real-world entities. A class acts as a template, blueprint, or contract defining what data fields and methods an object will contain.",
+        "benefits": "Allows logical grouping of properties and behaviors to uniquely identify and model real-world entities in software.",
+        "types": "N/A",
+        "syntax": "class Circle {\n    double radius = 1;\n    double getArea() {\n        return radius * radius * Math.PI;\n    }\n}",
+        "keywords": "object, class, blueprint, instantiation, state, behavior",
+        "Important Thing": "Anatomy of an Object",
+        "Important Thing Detail": {
+          "1": "Identity: A unique identity that distinguishes it from other objects.",
+          "2": "State (properties/attributes): Represented by data fields with their current values.",
+          "3": "Behavior (actions): Defined by methods invocation."
+        },
+        "diagram": "graph TD\n  Class[Class Template: Circle] -->|Instantiation| Obj1[Circle Object 1: radius=1]\n  Class -->|Instantiation| Obj2[Circle Object 2: radius=25]\n  Class -->|Instantiation| Obj3[Circle Object 3: radius=125]"
+      }
+    },
+    {
+      "topicId": "t2",
+      "title": "Class vs Object",
+      "details": {
+        "concept": "A class is a logical construct that definitions a framework, whereas an object has physical reality and occupies space in memory.",
+        "benefits": "Helps distinguish between structural definition (compile-time) and memory allocation (runtime).",
+        "types": "N/A",
+        "syntax": "// Class (Blueprint)\nclass Car { }\n\n// Object (Physical Instance)\nCar audi = new Car();",
+        "keywords": "blueprint, instance, logical framework, memory allocation",
+        "Important Thing": "Class vs Object",
+        "Important Thing Detail": {
+          "3": {"c": "Class is blueprint or template.", "i": "An Object is instance of a class."},
+          "1": {"c": "Class is a logical framework.", "i": "An Object is a collection of members of class."},
+          "2": {"c": "Class is a logical construct.", "i": "An Object is a physical reality."},
+          "4": {"c": "Class is groupt or collection of similar objects.", "i": "An Object defined as a real-world entity."},
+          "5": {"c" : "Class is declared only once", "i": "Objects can be created as many times as required."},
+          "6": {"c": "Class doesn't allocate memory when created", "i": "Objects allocate memory upon instantiation."},
+          "7": {"c": "Class can exist without its objects", "i": "An Object cannot exist without its class."}
+        },
+        "diagram": "graph LR\n  Class[Class: Blueprint/Template] -->|Allocates Memory| Object[Object: Physical Instance]"
+      }
+    },
+    {
+      "topicId": "t3",
+      "title": "Data Abstraction",
+      "details": {
+        "concept": "Focuses on showing only the essential features of an object while hiding the internal complex implementation details from the user.",
+        "benefits": "Reduces program complexity and improves overall maintainability.",
+        "types": "2 mechanisms",
+        "syntax": "abstract class Vehicle {\n    abstract void start();\n}",
+        "keywords": "abstraction, abstract class, interface",
+        "Important Thing": "How Abstraction is Achieved",
+        "Important Thing Detail": {
+          "1": "Abstract classes",
+          "2": "Interfaces"
+        },
+        "diagram": "graph TD\n  User[User Interactions] --> Inputs[Buttons/Inputs: Home, Volume, Charge]\n  Inputs --> Hidden[Hides Under-The-Hood Internal Logic]"
+      }
+    },
+    {
+      "topicId": "t4",
+      "title": "Data Encapsulation",
+      "details": {
+        "concept": "The mechanism of wrapping data fields (variables) and methods together into a single cohesive unit (a class) and restricting direct access.",
+        "benefits": "Protects internal state from unauthorized modification and enforces controlled access.",
+        "types": "N/A",
+        "syntax": "public class Account {\n    private double balance;\n    public double getBalance() { return balance; }\n    public void setBalance(double b) { this.balance = b; }\n}",
+        "keywords": "encapsulation, private variables, getters, setters",
+        "Important Thing": "Implementation Steps",
+        "Important Thing Detail": {
+          "1": "Declaring class variables as private.",
+          "2": "Providing public getter and setter methods to access and safely modify those variables."
+        }
+      }
+    },
+    {
+      "topicId": "t5",
+      "title": "Construct Objects using Constructors",
+      "details": {
+        "concept": "A special type of method invoked automatically with the 'new' operator to assign initial values to object attributes during creation.",
+        "benefits": "Ensures objects are properly allocated memory and initialized to valid states immediately.",
+        "types": "3 types",
+        "syntax": "class Circle {\n    double radius;\n    Circle() { radius = 1.0; } // Default Constructor\n    Circle(double r) { radius = r; } // Parameterized Constructor\n    Circle(Circle c) { return this.radius = c.radius; } // Copy Constructor\n}",
+        "keywords": "constructor, initialization, constructor overloading",
+        "Important Thing": "Constructor Peculiarities",
+        "Important Thing Detail": {
+          "1": "A constructor must have exactly the same name as the class itself.",
+          "2": "Constructors do not have a return type - not even void.",
+          "3": "Compiler provides a default constructor only if no constructor is explicitly defined."
+        }
+      }
+    },
+    {
+      "topicId": "t6",
+      "title": "Method vs Constructor",
+      "details": {
+        "concept": "Methods specify an object's operational behaviors, whereas constructors initialize the state of an object.",
+        "benefits": "Clarifies boundaries between runtime state initialization and operational interactions.",
+        "types": "N/A",
+        "syntax": "class Demo {\n    Demo() { } // Constructor: Init state\n    void display() { } // Method: Behaviour\n}",
+        "keywords": "behavior, initialization, invocation",
+        "Important Thing": "Core Differences",
+        "Important Thing Detail": {
+          "1": "Purpose: Methods perform operations; Constructors handle memory allocation & initialization.",
+          "2": "Naming: Methods have any valid name; Constructors must match the class name exactly.",
+          "3": "Inheritance: Methods are inherited by subclasses; Constructors are not inherited.",
+          "4": "Invocation: Methods are called explicitly; Constructors are invoked automatically via 'new'."
+        }
+      }
+    },
+    {
+      "topicId": "t7",
+      "title": "Accessing Objects via Reference Variables",
+      "details": {
+        "concept": "Newly instantiated objects are stored in memory and are interacted with via reference variables that point to their locations.",
+        "benefits": "Enables objects to be systematically manipulated, tracked, and dynamically allocated inside code.",
+        "types": "N/A",
+        "syntax": "ClassName objectRefVar = new ClassName();\nCircle myCircle = new Circle();",
+        "keywords": "reference variable, reference type, object creation",
+        "Important Thing": "Reference Dynamics",
+        "Important Thing Detail": {
+          "1": "A class acts as a programmer-defined reference type.",
+          "2": "The reference variable holds the address pointing to where the object resides in memory."
+        }
+      }
+    },
+    {
+      "topicId": "t8",
+      "title": "Difference between Variables of Primitive Types and Reference Types",
+      "details": {
+        "concept": "A primitive variable directly holds its literal value, whereas a reference variable contains an address indicating where an object is located.",
+        "benefits": "Understanding this distinction prevents bugs during assignments, object copying, and value alterations.",
+        "types": "N/A",
+        "syntax": "int i = 1; // Primitive type value\nCircle c = new Circle(); // Reference type points to object location",
+        "keywords": "primitive assignment, reference assignment, object reference",
+        "Important Thing": "Assignment Behavior",
+        "Important Thing Detail": {
+          "1": "Primitive type assignment (i = j) copies the actual content value.",
+          "2": "Reference type assignment (c1 = c2) copies the memory reference, resulting in both variables pointing to the same underlying object."
+        },
+        "diagram": "graph TD\n  Var1[c1 reference] --> Obj[Circle Object: radius=9]\n  Var2[c2 reference] --> Obj"
+      }
+    },
+    {
+      "topicId": "t9",
+      "title": "Accessing an Object’s Data and Methods",
+      "details": {
+        "concept": "After object initialization, data fields can be read/written and methods invoked by targeting the reference variable via the dot operator.",
+        "benefits": "Provides a clean and standardized interface syntax to interact with object state and behaviors.",
+        "types": "N/A",
+        "syntax": "myCircle.radius = 5.5; // Accessing data field\ndouble area = myCircle.getArea(); // Invoking method",
+        "keywords": "dot operator, member access, method invocation",
+        "Important Thing": "Default Reference Values",
+        "Important Thing Detail": {
+          "1": "Reference data fields within a class defaults to null if unassigned.",
+          "2": "Numeric fields default to 0, booleans to false, and chars to '\\u0000'."
+        }
+      }
+    },
+    {
+      "topicId": "t10",
+      "title": "Static Variables",
+      "details": {
+        "concept": "Static variables (class variables) belong directly to the class rather than instances. Their state is shared globally across every object of that class.",
+        "benefits": "Optimizes memory management by storing shared common parameters in a single common memory location.",
+        "types": "N/A",
+        "syntax": "class Student {\n    static String collegeName = \"XYZ University\";\n}",
+        "keywords": "static, class variable, shared memory, class loading",
+        "Important Thing": "Memory Characteristic",
+        "Important Thing Detail": {
+          "1": "Static variables get allocated memory exactly once in the class area when the class is loaded.",
+          "2": "If one object modifies a static variable, all other instances are immediately affected."
+        }
+      }
+    },
+    {
+      "topicId": "t11",
+      "title": "Static Methods",
+      "details": {
+        "concept": "Methods declared with the static keyword belong to the class framework and can be invoked directly without instantiating any object.",
+        "benefits": "Enables the execution of operations or logic that aren't dependent on unique object instances.",
+        "types": "N/A",
+        "syntax": "public static int getCircleCount() {\n    return numberOfObjects;\n}",
+        "keywords": "static method, class method, non-static context",
+        "Important Thing": "Strict Restrictions",
+        "Important Thing Detail": {
+          "1": "Static methods cannot access non-static instance fields or invoke non-static methods directly.",
+          "2": "The keywords 'this' and 'super' cannot be used in any static context."
+        },
+        "diagram": "graph TD\n  StaticMethod[Static Method] -->|Can Invoke/Access| StaticMembers[Static Data/Methods]\n  StaticMethod -.->|Cannot Access| InstanceMembers[Instance Data/Methods]"
+      }
+    },
+    {
+      "topicId": "t12",
+      "title": "Static Blocks",
+      "details": {
+        "concept": "A static block is an isolated initializer chunk utilized to configure static data fields during class loading.",
+        "benefits": "Guarantees that complex class-level configurations run automatically before the main method triggers.",
+        "types": "N/A",
+        "syntax": "class A2 {\n    static { \n        System.out.println(\"Static block invoked\");\n    }\n}",
+        "keywords": "static block, initialization, class loading, main method",
+        "Important Thing": "Execution Sequence",
+        "Important Thing Detail": {
+          "1": "It executes precisely once when the class is first loaded into memory, running ahead of the main method."
+        }
+      }
+    },
+    {
+      "topicId": "t13",
+      "title": "Visibility Modifiers",
+      "details": {
+        "concept": "Access modifiers specify the structural boundaries and visibility rules regulating how fields, classes, and methods are reached from external programs.",
+        "benefits": "Enforces data hiding and modular protection in line with robust Object-Oriented software architectures.",
+        "types": "4 types",
+        "syntax": "private int id;\npublic String name;\nprotected double salary;\nint age; // default visibility",
+        "keywords": "access specifiers, public, private, protected, default",
+        "Important Thing": "Visibility Scope Hierarchy",
+        "Important Thing Detail": {
+          "1": "Private: Accessible exclusively within the declaring class.",
+          "2": "Default (Package-private): Accessible only within the declaring package.",
+          "3": "Protected: Accessible within the same package and external subclasses.",
+          "4": "Public: Accessible globally from anywhere in the codebase."
+        }
+      }
+    },
+    {
+      "topicId": "t14",
+      "title": "Array of Objects",
+      "details": {
+        "concept": "Arrays can be structured to contain collections of reference variables pointing to individual objects rather than holding simple primitive data values.",
+        "benefits": "Provides structured looping over multiple class instances to update properties or perform batch calculations.",
+        "types": "N/A",
+        "syntax": "Circle[] circleArray = new Circle[10];\nfor(int i=0; i < circleArray.length; i++) {\n    circleArray[i] = new Circle();\n}",
+        "keywords": "object array, reference array, element initialization",
+        "Important Thing": "Referencing Mechanics",
+        "Important Thing Detail": {
+          "1": "Instantiating an array of objects creates an array of null reference pointers.",
+          "2": "Each index element must be individually initialized with 'new' to avoid a NullPointerException.",
+          "3": "Invoking methods via array elements involves two distinct levels of reference navigation."
+        },
+        "diagram": "graph LR\n  Arr[\"circleArray Reference\"] --> ArrayBlock\n  subgraph ArrayBlock [\"circleArray Object\"]\n    Slot0[\"circleArray[0]\"]\n    Slot1[\"circleArray[1]\"]\n    Slot9[\"circleArray[9]\"]\n  end\n  Slot0 --> Obj0(\"Circle object 0\")\n  Slot1 --> Obj1(\"Circle object 1\")\n  Slot9 --> Obj9(\"Circle object 9\")"
+      }
+    },
+    {
+      "topicId": "t15",
+      "title": "Scope of Variable",
+      "details": {
+        "concept": "Defines the specific functional domain or boundaries in a program where a variable can be validly referenced.",
+        "benefits": "Reduces naming conflicts and tracks variable lifetimes cleanly throughout execution cycles.",
+        "types": "3 scopes",
+        "syntax": "public class F {\n    private int x = 0; // Instance scope\n    public void p() {\n        int x = 1; // Local scope hides instance variable\n    }\n}",
+        "keywords": "variable scope, local variable, instance variable, variable shadowing",
+        "Important Thing": "Precedence and Shadowing",
+        "Important Thing Detail": {
+          "1": "Instance and static variables have a scope extending across the entire enclosing class.",
+          "2": "Variables declared inside a specific method are local variables.",
+          "3": "If a local variable matches a class variable name, the local variable takes precedence, shadowing/hiding the class field."
+        }
+      }
+    },
+    {
+      "topicId": "t16",
+      "title": "this Keyword",
+      "details": {
+        "concept": "The 'this' keyword provides an implicit reference value that an active object instance uses to refer directly to itself.",
+        "benefits": "Differentiates class parameters from local method variables when names match, and allows constructors to call each other.",
+        "types": "N/A",
+        "syntax": "public class Circle {\n    private double radius;\n    public Circle(double radius) {\n        this.radius = radius; // Refers to hidden instance variable\n    }\n}",
+        "keywords": "this reference, hidden data fields, constructor chaining",
+        "Important Thing": "Primary Applications",
+        "Important Thing Detail": {
+          "1": "Used to access hidden instance variables masked by matching local parameters.",
+          "2": "Used at the first line of a constructor to invoke an overloaded constructor of the same class."
+        }
+      }
+    },
+    {
+      "topicId": "t17",
+      "title": "Instance Block",
+      "details": {
+        "concept": "An instance initialization block is a block of code within a class that executes dynamically every single time an object is initialized.",
+        "benefits": "Centralizes shared initialization routines that need to run across multiple overloaded constructors.",
+        "types": "N/A",
+        "syntax": "class Demo {\n    int x;\n    { \n        x = 10; \n        System.out.println(\"Instance block executed\");\n    }\n    Demo() { }\n}",
+        "keywords": "instance block, initialization, constructor sequence",
+        "Important Thing": "Execution Order",
+        "Important Thing Detail": {
+          "1": "Declared directly inside a class but separate from any method or constructor bodies.",
+          "2": "Executes sequentially before the targeted constructor code triggers, every time an instance is built."
+        }
+      }
+    },
+    {
+      "topicId": "t18",
+      "title": "Inner Class",
+      "details": {
+        "concept": "An inner class is any class or interface structure that is nesting directly inside another outer class wrapper.",
+        "benefits": "Logically organizes classes intended for single-use locations, maximizing package readability and structural encapsulation.",
+        "types": "N/A",
+        "syntax": "class Outer {\n    class Inner {\n        void show() { System.out.println(\"Inner content\"); }\n    }\n}",
+        "keywords": "inner class, nested class, outer reference, logical grouping",
+        "Important Thing": "Access Permissions",
+        "Important Thing Detail": {
+          "1": "Inner classes maintain special permissions allowing full access to all data members and methods of the outer class, including private elements.",
+          "2": "Instantiation of a non-static inner class relies on an active reference instance of the outer class structure."
+        },
+        "diagram": "graph TD\n  Outer[Outer Class] -->|Contains| Inner[Inner Class]\n  Inner -->|Accesses Private Data & Methods| Outer"
+      }
+    }
+  ]
+},
+  {
+    "unitId": 4.1,
+    "unitTitle": "UNIT 4 - PART 1: INHERITANCE AND POLYMORPHISM",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Important Terms (Super, sub and reusability)",
+        "details": {
+          "concept": "Inheritance is an important and powerful feature for reusing software. It lets a specialized class extend a generalized class, inheriting its shared properties and behaviors.",
+          "benefits": "Avoids redundancy, makes the system easy to comprehend, and simplifies software maintenance.",
+          "types": "N/A",
+          "syntax": "class GeneralSuperClass { }\nclass SpecializedSubClass extends GeneralSuperClass { }",
+          "keywords": "inheritance, super class, sub class, reusability",
+          "Important Thing": "Core Definitions",
+          "Important Thing Detail": {
+            "1": "Super Class: The parent, base, or generalized class whose features are inherited.",
+            "2": "Sub Class: The child, derived, or specialized class that extends the superclass and adds its own custom fields and methods.",
+            "3": "Reusability: Creating a new class by deriving from an existing one, directly reusing its pre-written fields and methods."
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Types of Inheritance (All Four Types)",
+        "details": {
+          "concept": "Different structural hierarchies that define how subclasses pull properties out of parent classes.",
+          "benefits": "Provides foundational models to establish clear structural relationships among software components.",
+          "types": "4 types",
+          "syntax": "// Single Inheritance\npublic class B extends A {}\n\n// Multilevel Inheritance\npublic class C extends B {}",
+          "keywords": "single inheritance, multilevel, hierarchical, multiple inheritance",
+          "Important Thing": "The Four Structural Layouts",
+          "Important Thing Detail": {
+            "1": "Single Inheritance: A subclass inherits features from exactly one superclass.",
+            "2": "Multilevel Inheritance: A child class inherits a base class, and that child class then acts as a base class for a separate derived class.",
+            "3": "Hierarchical Inheritance: One base class serves as a direct superclass for multiple different subclasses.",
+            "4": "Multiple Inheritance: One class inherits from more than one superclass. Java does NOT support multiple inheritance with classes; it is achieved exclusively using interfaces."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Super and Sub Class",
+        "details": {
+          "concept": "The structural relationship where a child class utilizes the 'extends' keyword to bring in visible fields and methods from a parent class.",
+          "benefits": "Enables specialized subclass modeling based on a core generalized template.",
+          "types": "N/A",
+          "syntax": "public class Circle extends GeometricObject {\n    // Inherits visible methods of GeometricObject automatically\n}",
+          "keywords": "extends, specialization, generalization, parent class",
+          "Important Thing": "Crucial Inheritance Rules",
+          "Important Thing Detail": {
+            "1": "Constructors are never inherited by a subclass.",
+            "2": "Private data fields in a superclass are completely inaccessible outside of itself; they cannot be used directly in a subclass.",
+            "3": "Private fields must be accessed or changed using public accessors (getters) or mutators (setters) defined in the superclass.",
+            "4": "Inheritance models an strict 'is-a' relationship. Do not blindly extend a class just to reuse methods (e.g., a Tree class extending a Person class makes no sense)."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Super keyword or calling super class constructor",
+        "details": {
+          "concept": "The 'super' keyword is a dedicated reference pointing to the immediate superclass of the class in which it appears.",
+          "benefits": "Provides a clean channel to safely execute parent constructors and trigger overridden parent methods.",
+          "types": "2 usages",
+          "syntax": "public Circle(double radius, String color, boolean filled) {\n    super(color, filled); // Calls superclass constructor\n    this.radius = radius;\n}",
+          "keywords": "super, parent constructor, explicit call",
+          "Important Thing": "Syntax Rules",
+          "Important Thing Detail": {
+            "1": "Calling superclass constructors uses 'super()' or 'super(parameters)'.",
+            "2": "The explicit call to a superclass constructor must be the absolute first statement inside the subclass constructor.",
+            "3": "Calling superclass methods uses 'super.methodName(parameters)'."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Constructor Chaining",
+        "details": {
+          "concept": "Instantiating a subclass triggers a sequence that executes the constructors of all superclasses up the line along the inheritance chain.",
+          "benefits": "Ensures every parent level layer of an object is fully initialized from the top down before subclass logic runs.",
+          "types": "N/A",
+          "syntax": "public class Apple extends Fruit {\n    // Implicitly puts super() as its very first statement\n}",
+          "keywords": "chaining, implicit constructor, compilation error",
+          "Important Thing": "Chaining Failures",
+          "Important Thing Detail": {
+            "1": "If a constructor does not explicitly invoke a parent constructor, the compiler automatically inserts an implicit 'super()' as its first statement.",
+            "2": "If a parent class only defines parameterized constructors and omits a no-arg constructor, its subclasses will throw a compilation error unless they call the parameterized constructor explicitly using super."
+          }
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Method Overloading",
+        "details": {
+          "concept": "Method overloading lets a programmer define multiple methods with the exact same name but entirely different method signatures.",
+          "benefits": "Significantly increases program readability by clustering similar operations under a unified name.",
+          "types": "N/A",
+          "syntax": "public static int max(int n1, int n2) { }\npublic static double max(double n1, double n2) { }",
+          "keywords": "overloading, signature, ambiguous invocation",
+          "Important Thing": "Ambiguous Invocation",
+          "Important Thing Detail": {
+            "1": "If the compiler matches two or more overloaded methods for a call and cannot determine which is the most specific match, it causes an ambiguous invocation compile error."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Method Overriding",
+        "details": {
+          "concept": "A subclass can re-implement an instance method inherited from a superclass to tailor its execution.",
+          "benefits": "Allows specialized subclasses to update inherited general actions with context-specific logic.",
+          "types": "N/A",
+          "syntax": "class Dog extends Animal {\n    @Override\n    public void move() { System.out.println(\"Dog runs\"); } // Overrides parent move()\n}",
+          "keywords": "overriding, matching signature, static hiding",
+          "Important Thing": "Overriding Constraints",
+          "Important Thing Detail": {
+            "1": "An overriding method must share the exact same signature and return type as the parent method.",
+            "2": "An instance method can only be overridden if it is accessible; private parent methods cannot be overridden.",
+            "3": "Static methods can be inherited, but they cannot be overridden. Redefining a static method in a subclass hides the parent version."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Overloading vs Overriding",
+        "details": {
+          "concept": "A direct comparison between static compile-time method customization and dynamic runtime behavioral modification.",
+          "benefits": "Clears up confusion regarding method boundaries within a single class versus an inheritance hierarchy.",
+          "types": "N/A",
+          "syntax": "// Overloading: Same class, different parameters\n// Overriding: Inherited class, same parameters",
+          "keywords": "comparison, compile-time, runtime",
+          "Important Thing": "Core Distinctions",
+          "Important Thing Detail": {
+            "1": { "c": "Used to increase program readability.", "i": "Used to provide a specific execution for an inherited method." },
+            "2": { "c": "Performed inside a single class definition.", "i": "Occurs between two classes bound by an IS-A relationship." },
+            "3": { "c": "Method parameters MUST be entirely different.", "i": "Method parameters MUST match exactly." },
+            "4": { "c": "Acts as an example of compile-time polymorphism.", "i": "Acts as an example of run-time polymorphism." },
+            "5": { "c": "Cannot be performed by changing the return type alone.", "i": "Return type must be the same or a covariant type." }
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "Polymorphism",
+        "details": {
+          "concept": "Polymorphism (meaning 'many forms') allows a parent variable type to hold a reference pointing directly to a child subtype object.",
+          "benefits": "Enables generic programming patterns where a single action can deal with many different subtypes seamlessly.",
+          "types": "2 types",
+          "syntax": "GeometricObject geo = new Circle(); // Parent type holds child instance",
+          "keywords": "polymorphism, subtype, supertype, generic programming",
+          "Important Thing": "Type Assignment Hierarchy",
+          "Important Thing Detail": {
+            "1": "A type defined by a subclass is a subtype; a type defined by a superclass is a supertype.",
+            "2": "Every instance of a subclass is also an instance of its superclass, meaning you can always pass a child instance into a parent variable slot."
+          }
+        }
+      },
+      {
+        "topicId": "t10",
+        "title": "Dynamic Dispatch Method",
+        "details": {
+          "concept": "The underlying system that handles call requests to overridden methods right at runtime instead of compile time.",
+          "benefits": "Enables clean runtime polymorphism by letting the exact execution path be determined by the object instance itself.",
+          "types": "N/A",
+          "syntax": "A a = new B(); // Upcasting\na.move(); // Triggers the child version at runtime",
+          "keywords": "dynamic dispatch, upcasting, runtime resolution",
+          "Important Thing": "Upcasting vs Downcasting",
+          "Important Thing Detail": {
+            "1": "Upcasting (assigning a child instance directly to a parent variable) is perfectly legal and happens automatically.",
+            "2": "Assigning a parent reference directly to a child variable is illegal and breaks compilation immediately."
+          }
+        }
+      },
+      {
+        "topicId": "t11",
+        "title": "Dynamic Binding",
+        "details": {
+          "concept": "The process where Java decides which specific method implementation to execute at runtime based on the actual object type, not the variable's declared type.",
+          "benefits": "Guarantees that an object will always execute its own custom behavior regardless of the reference tracking it.",
+          "types": "N/A",
+          "syntax": "Object o = new GeometricObject();\nSystem.out.println(o.toString()); // Invokes GeometricObject's toString()",
+          "keywords": "declared type, actual type, late binding, lookup order",
+          "Important Thing": "Method Lookup Steps",
+          "Important Thing Detail": {
+            "1": "Declared Type: The specific type used to declare the reference variable name. This type decides method matching at compile time.",
+            "2": "Actual Type: The real class of the object instance that the reference variable is pointing to.",
+            "3": "When a method is called, the JVM searches for its implementation starting at the most specific child class and travels up the inheritance chain until it finds a match."
+          }
+        }
+      },
+      {
+        "topicId": "t12",
+        "title": "Protected data and methods",
+        "details": {
+          "concept": "An access modifier that allows subclasses located anywhere to access parent members, while keeping non-subclasses in other packages completely locked out.",
+          "benefits": "Strikes a balance between total encapsulation and inheritance flexibility for expanding classes.",
+          "types": "N/A",
+          "syntax": "protected int y;\nprotected void m() { }",
+          "keywords": "protected, access modifier, package, visibility",
+          "Important Thing": "Access Limits",
+          "Important Thing Detail": {
+            "1": "Private: Accessible exclusively within the class itself.",
+            "2": "Default (No modifier): Accessible by any class inside the same package.",
+            "3": "Protected: Accessible by any class inside the same package, or by subclasses located in any package.",
+            "4": "Public: Completely open to access from any class anywhere."
+          }
+        }
+      },
+      {
+        "topicId": "t13",
+        "title": "Preventing Extending and Overriding",
+        "details": {
+          "concept": "Using the 'final' keyword modifier to definitively lock down elements, stopping classes from being extended or methods from being overridden.",
+          "benefits": "Secures critical system designs from being altered or broken by subsequent subclass changes.",
+          "types": "2 applications",
+          "syntax": "public final class A { } // Cannot be extended\npublic final void m() { } // Cannot be overridden",
+          "keywords": "final, final class, final method, restriction",
+          "Important Thing": "Core API Examples",
+          "Important Thing Detail": {
+            "1": "The standard Math class is an explicit final class.",
+            "2": "The String, StringBuilder, and StringBuffer classes are all explicitly locked as final classes."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 4.2,
+    "unitTitle": "UNIT 4 - PART 2: CORE WRAPPER CLASSES, STRINGS, AND PACKAGES",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Processing Primitive Data Type Values as Objects",
+        "details": {
+          "concept": "Primitive values are not object instances in Java to optimize speed. However, many system methods require object arguments, meaning primitives must be wrapped inside classes to interact with them.",
+          "benefits": "Allows simple data to integrate with object-only components like utility collections.",
+          "types": "8 classes",
+          "syntax": "Integer i = new Integer(10);\nDouble d = new Double(10.2);",
+          "keywords": "wrapper class, java.lang, primitive objects",
+          "Important Thing": "The Wrapper Mapping",
+          "Important Thing Detail": {
+            "1": "Primitives (byte, short, int, long) map directly to Byte, Short, Integer, and Long.",
+            "2": "Primitives (float, double) map directly to Float and Double.",
+            "3": "Primitives (char, boolean) map directly to Character and Boolean."
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Primitive and Wrapper Class Type",
+        "details": {
+          "concept": "Converting back and forth between primitive types and object wrapper formats. This can happen explicitly or through automated compiler assistance.",
+          "benefits": "Reduces messy conversion boilerplate when moving data into modern collection frameworks.",
+          "types": "2 operations",
+          "syntax": "Integer[] intArray = {2, 4, 3}; // Autoboxing\nint sum = intArray[0] + intArray[1]; // Autounboxing",
+          "keywords": "boxing, unboxing, autoboxing, autounboxing",
+          "Important Thing": "Key Framework Drivers",
+          "Important Thing Detail": {
+            "1": "Boxing: Explicitly or implicitly converting a raw primitive value into a wrapper object instance.",
+            "2": "Unboxing: Converting an object wrapper instance back into its raw primitive value.",
+            "3": "Data structures inside the Collection framework (such as ArrayList and Vector) store reference types exclusively and cannot accept raw primitive values directly."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Constructing a String",
+        "details": {
+          "concept": "The String class provides multiple constructors and methods to instantiate character sequences.",
+          "benefits": "Offers rich, flexible creation options using standard quotes or char arrays.",
+          "types": "N/A",
+          "syntax": "String s1 = \"Java\";\nchar[] chars = {'a', 'b', 'c'};\nString s2 = new String(chars);",
+          "keywords": "string literal, char array, initialization",
+          "Important Thing": "Literal Inherent Design",
+          "Important Thing Detail": {
+            "1": "Java inherently treats every inline string literal sequence as a fully realized String object instance automatically."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Immutable String and Interned String",
+        "details": {
+          "concept": "A String object is completely immutable; its core content cannot be modified after creation. The JVM references a single internal instance for literals with identical text to save memory space.",
+          "benefits": "Drastically saves memory allocations and ensures absolute string data safety across application paths.",
+          "types": "N/A",
+          "syntax": "String s1 = \"Welcome\";\nString s2 = \"Welcome\"; // Points to same interned string instance",
+          "keywords": "immutable, interned string, string pool, literal optimization",
+          "Important Thing": "Reference Equality vs Object Equality",
+          "Important Thing Detail": {
+            "1": "Reassigning a String variable (s = 'HTML') does not change the original object data; it simply alters the pointer to look at an entirely new string object.",
+            "2": "String variables pointing to pure matching literals evaluate to true with standard comparison pointers (s1 == s3) because they share the exact same interned object.",
+            "3": "Strings created with 'new String()' allocate brand new separate objects, evaluating to false under direct pointer checks (s1 == s2)."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Replacing and Splitting Strings",
+        "details": {
+          "concept": "Because strings are immutable, methods designed to swap characters or break sequences apart always generate a fresh string result, leaving the original copy untouched.",
+          "benefits": "Enables safe, non-destructive parsing and structural edits of text content.",
+          "types": "N/A",
+          "syntax": "String clean = \"Welcome\".replace('e', 'A');\nString[] tokens = \"Java#HTML\".split(\"#\");",
+          "keywords": "replace, replaceFirst, split, delimiter",
+          "Important Thing": "Method Variations",
+          "Important Thing Detail": {
+            "1": "replace: Swaps every single matching character instance or substring inside the targeted string.",
+            "2": "replaceFirst: Limits the text replacement to only the very first matching sequence it finds.",
+            "3": "split: Extracts clean text tokens out of a string by carving along specified boundary strings."
+          }
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Matching, Replacing and Splitting by Patterns",
+        "details": {
+          "concept": "Utilizing regular expressions (regex) to check input formatting, or perform sweeping edits based on dynamic matching rules.",
+          "benefits": "Provides an expressive syntax to parse and validate complex textual formats.",
+          "types": "N/A",
+          "syntax": "boolean valid = \"440-02-4534\".matches(\"\\\\d{3}-\\\\d{2}-\\\\d{4}\");\nString[] tags = \"Java,C?C#\".split(\"[.,:;?]\");",
+          "keywords": "regex, regular expression, pattern matching, validation",
+          "Important Thing": "Pattern Formatting Syntax",
+          "Important Thing Detail": {
+            "1": "The token '\\\\d' translates into a single digit matcher, while '\\\\d{3}' looks for exactly three digits in sequence.",
+            "2": "Brackets like '[+$#]' compile a custom set of options, matching any single character that appears inside those boundaries."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Conversion between Strings and Arrays",
+        "details": {
+          "concept": "Strings are fundamentally distinct from character arrays in Java, but the language provides native utilities to transition back and forth.",
+          "benefits": "Allows fast processing of individual character items before reconstructing a full string value.",
+          "types": "N/A",
+          "syntax": "char[] chars = \"Java\".toCharArray();\nString str = String.valueOf(chars);",
+          "keywords": "toCharArray, getChars, valueOf, conversion",
+          "Important Thing": "The Subarray Copy Mechanism",
+          "Important Thing Detail": {
+            "1": "The 'getChars' method provides a fast way to copy a specific sub-segment of a string directly into an existing target destination array at a designated offset index."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Convert Numeric value to string",
+        "details": {
+          "concept": "The String class offers a collection of static valueOf() methods to transform all forms of primitive numeric fields into readable text instances.",
+          "benefits": "Ensures clean type transformation whenever numeric outputs must be printed or combined with text elements.",
+          "types": "N/A",
+          "syntax": "String dStr = String.valueOf(10.2);\nString bStr = String.valueOf(true);",
+          "keywords": "valueOf, numeric conversion, string representation",
+          "Important Thing": "Supported Primitives",
+          "Important Thing Detail": {
+            "1": "The static valueOf method is fully overloaded to accept double, float, int, long, char, and boolean types."
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "The StringBuilder and StringBuffer Classes",
+        "details": {
+          "concept": "Highly flexible alternatives to the rigid String class that allow creators to continuously expand, alter, or insert characters inside a single mutable buffer.",
+          "benefits": "Drastically reduces memory overhead by modifying internal data directly without constantly instantiating new intermediate objects.",
+          "types": "2 options",
+          "syntax": "StringBuilder builder = new StringBuilder(\"Welcome\");",
+          "keywords": "StringBuilder, StringBuffer, mutable, synchronized",
+          "Important Thing": "Thread Safety Boundaries",
+          "Important Thing Detail": {
+            "1": "StringBuffer uses synchronized modifications, making it safe to access across multiple concurrent processing tasks.",
+            "2": "StringBuilder is non-synchronized, running much faster when your operations are confined to a single processing task."
+          }
+        }
+      },
+      {
+        "topicId": "t10",
+        "title": "Modifying Strings in the StringBuilder",
+        "details": {
+          "concept": "An array of dedicated, in-place edit tools to modify, append, chop out, or flip character sequences within the active builder object.",
+          "benefits": "Provides fluent, high-performance string building tools without generation garbage objects.",
+          "types": "N/A",
+          "syntax": "StringBuilder sb = new StringBuilder(\"Welcome\");\nsb.append(\" Java\");\nsb.insert(7, \" to\");",
+          "keywords": "append, insert, delete, reverse, replace",
+          "Important Thing": "Key Manipulation Actions",
+          "Important Thing Detail": {
+            "1": "append: Tacks new characters or primitive entries directly onto the current end of the builder data.",
+            "2": "insert: Forces new character components into a precise index location within the existing buffer.",
+            "3": "delete / deleteCharAt: Chops out a range of index positions or a single item instantly.",
+            "4": "reverse: Flips the character ordering within the builder."
+          }
+        }
+      },
+      {
+        "topicId": "t11",
+        "title": "Java API Packages",
+        "details": {
+          "concept": "A built-in namespace architecture that neatly bundles a massive library of related core classes and interfaces developed by Java.",
+          "benefits": "Organizes framework utilities effectively, making massive code libraries discoverable and preventing naming conflicts.",
+          "types": "N/A",
+          "syntax": "import java.util.ArrayList;\nimport java.util.*;",
+          "keywords": "API, java.lang, java.util, import namespace",
+          "Important Thing": "Common System Libraries",
+          "Important Thing Detail": {
+            "1": "java.lang: Contains core foundational language classes (String, Math, Object). It is imported into every file automatically.",
+            "2": "java.util: Stores the entire collection engine framework alongside scanner tools and core utility classes.",
+            "3": "java.io: Manages data stream transfers, block readers, and system file handling."
+          }
+        }
+      },
+      {
+        "topicId": "t12",
+        "title": "User Defined Packages",
+        "details": {
+          "concept": "Custom namespaces set up explicitly by developers to group related project files and interfaces neatly.",
+          "benefits": "Keeps large enterprise systems highly organized, prevents component naming collisions, and enforces cleaner access boundaries.",
+          "types": "N/A",
+          "syntax": "package com.myproject.oop;\npublic class CustomClass { }",
+          "keywords": "user package, custom namespace, project organization",
+          "Important Thing": "Implementation Motives",
+          "Important Thing Detail": {
+            "1": "Used to efficiently organize sprawling code bases.",
+            "2": "Helps avoid name collisions, optimizes readability, and provides fine-grained package access security."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 4.3,
+    "unitTitle": "UNIT 4 - PART 3: JAVA COLLECTIONS FRAMEWORK",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "What is Collection Framework?",
+        "details": {
+          "concept": "A unified architecture consisting of interfaces and classes designed to store and efficiently manipulate groups of elements as container objects.",
+          "benefits": "Provides high-performance data structures and algorithms out of the box, reducing custom development effort.",
+          "types": "2 container types",
+          "syntax": "Collection<String> list = new ArrayList<>();",
+          "keywords": "framework, container, java.util, collection, map",
+          "Important Thing": "The Core Splits",
+          "Important Thing Detail": {
+            "1": "Collection Category: Dedicated to storing a simple sequential group of individual element pieces.",
+            "2": "Map Category: Dedicated to tracking key/value associations for rapid lookups.",
+            "3": "All core interfaces and classes belong directly to the java.util system library package."
+          },
+          "diagram": "graph TD\n  Iterable[\"«interface»<br>Iterable\"] --> Collection[\"«interface»<br>Collection\"]\n  Collection --> List[\"«interface»<br>List\"]\n  Collection --> Queue[\"«interface»<br>Queue\"]\n  Collection --> Set[\"«interface»<br>Set\"]\n  List --> ArrayList[\"ArrayList\"]\n  List --> LinkedList[\"LinkedList\"]\n  List --> Vector[\"Vector\"]\n  Vector --> Stack[\"Stack\"]\n  Queue --> PriorityQueue[\"PriorityQueue\"]\n  Queue --> Deque[\"«interface»<br>Deque\"]\n  Deque --> LinkedList\n  Deque --> ArrayDeque[\"ArrayDeque\"]\n  Set --> HashSet[\"HashSet\"]\n  Set --> LinkedHashSet[\"LinkedHashSet\"]\n  Set --> SortedSet[\"«interface»<br>SortedSet\"]\n  SortedSet --> TreeSet[\"TreeSet\"]"
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Basic Operation of collection",
+        "details": {
+          "concept": "The basic methods defined by the root Collection interface to handle adding, removing, and examining elements.",
+          "benefits": "Establishes a uniform set of operations across completely different data structures.",
+          "types": "N/A",
+          "syntax": "boolean altered = c.add(\"item\");\nc.clear();",
+          "keywords": "add, remove, clear, size, contains",
+          "Important Thing": "Operation Specifics",
+          "Important Thing Detail": {
+            "1": "Modification methods like add() and remove() return a boolean confirming if the structure changed.",
+            "2": "The framework includes batch actions like addAll(), removeAll(), and retainAll().",
+            "3": "Query checks include checking element counts with size(), state checks with isEmpty(), and tracking entries with contains()."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Iterators",
+        "details": {
+          "concept": "A design pattern that provides a uniform way to walk sequentially through a data structure without exposing its internal layout.",
+          "benefits": "Allows safe, standardized element traversal across arrays, links, or tree structures seamlessly.",
+          "types": "N/A",
+          "syntax": "Iterator<String> it = collection.iterator();\nwhile(it.hasNext()) {\n    String s = it.next();\n}",
+          "keywords": "Iterator, traversal, uniform access, hasNext, next",
+          "Important Thing": "Iterator Operations",
+          "Important Thing Detail": {
+            "1": "The standard collection interface explicitly extends the Iterable interface to supply iterators.",
+            "2": "hasNext() validates if more entries remain; next() steps forward and returns the item.",
+            "3": "remove() safely extracts the absolute last item delivered by the next() operation."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Lists",
+        "details": {
+          "concept": "An ordered collection interface that extends Collection, explicitly allowing duplicate entries and maintaining element insertion order.",
+          "benefits": "Provides precise positional control over element placement and indexing.",
+          "types": "N/A",
+          "syntax": "List<Integer> list = new ArrayList<>();\nlist.add(0, 99); // Position-oriented insertion",
+          "keywords": "List, index, ordered collection, duplicates",
+          "Important Thing": "List Extensions",
+          "Important Thing Detail": {
+            "1": "Adds position-oriented tracking methods like get(index), set(index, element), and remove(index).",
+            "2": "Introduces directional tracking via indexOf(element) and lastIndexOf(element).",
+            "3": "Provides a dedicated listIterator() tool to traverse back and forth through lists bidirectionally."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Array List and LinkedList Class",
+        "details": {
+          "concept": "The two primary concrete implementations of the List interface, each backed by entirely different structural memory designs.",
+          "benefits": "Allows developers to select the ideal class implementation based on application performance needs.",
+          "types": "2 classes",
+          "syntax": "List<String> al = new ArrayList<>();\nList<String> ll = new LinkedList<>();",
+          "keywords": "ArrayList, LinkedList, capacity, random access",
+          "Important Thing": "Performance Mechanics",
+          "Important Thing Detail": {
+            "1": "ArrayList stores items in a dynamic array. Exceeding capacity copies elements into a new, larger array.",
+            "2": "ArrayList is optimal for fast, random index lookups but gets slow when inserting or deleting items at the start.",
+            "3": "LinkedList stores elements as linked nodes, making insertions and deletions at the front highly efficient.",
+            "4": "Using the get(i) index lookup method on a LinkedList is highly inefficient; always use an iterator or a foreach loop instead."
+          }
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Vector and Stack Classes",
+        "details": {
+          "concept": "Legacy sequential containers that inherit from AbstractList, featuring fully synchronized methods for thread safety.",
+          "benefits": "Prevents memory data corruption when multiple execution threads update a single collection concurrently.",
+          "types": "2 classes",
+          "syntax": "Vector<String> v = new Vector<>();\nStack<String> st = new Stack<>();",
+          "keywords": "Vector, Stack, synchronization, thread-safe, LIFO",
+          "Important Thing": "Key Capabilities",
+          "Important Thing Detail": {
+            "1": "Vector matches ArrayList behavior but adds synchronized protection overhead, making it slower for single-threaded uses.",
+            "2": "Stack directly extends Vector to build a Last-In, First-Out (LIFO) element processing system.",
+            "3": "Stack operations use push() to add items, pop() to remove the top item, and peek() to view the top item without removing it."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Queues and Priority Queues",
+        "details": {
+          "concept": "Containers designed to hold elements prior to processing, adhering to precise ordering rules.",
+          "benefits": "Simplifies staging logic for tasks that must be processed in specific sequence orders.",
+          "types": "2 options",
+          "syntax": "Queue<String> q = new LinkedList<>();\nPriorityQueue<Integer> pq = new PriorityQueue<>();",
+          "keywords": "Queue, PriorityQueue, FIFO, offer, poll, peek",
+          "Important Thing": "Functional Differences",
+          "Important Thing Detail": {
+            "1": "Standard Queues follow First-In, First-Out (FIFO) rules, adding elements at the tail and pulling from the head.",
+            "2": "PriorityQueues process elements based on their priority values, pulling the element with the highest priority first.",
+            "3": "The offer() method inserts elements; poll() extracts the head (returning null if empty), while remove() throws an exception if empty."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Sets and Maps",
+        "details": {
+          "concept": "High-performance data structures built to handle specialized item indexing or to enforce absolute element uniqueness.",
+          "benefits": "Optimizes membership verification and enables immediate value lookups using custom key objects.",
+          "types": "2 core designs",
+          "syntax": "Set<String> s = new HashSet<>();\nMap<String, Integer> m = new HashMap<>();",
+          "keywords": "Set, Map, unique, dictionary, key-value",
+          "Important Thing": "Structural Purpose",
+          "Important Thing Detail": {
+            "1": "A Set acts as an efficient structure to hold groups of non-duplicate elements.",
+            "2": "A Map behaves like a dictionary, mapping a unique search key to a corresponding value entry."
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "List vs Set",
+        "details": {
+          "concept": "A comparison between ordered index tracking and unique element collection engines.",
+          "benefits": "Clarifies choices between retaining insertion order duplicates or keeping clean, unique datasets.",
+          "types": "N/A",
+          "syntax": "// List: order + duplicates allowed\n// Set: unique elements only",
+          "keywords": "comparison, ordering, uniqueness, duplicate handling",
+          "Important Thing": "Core Differences",
+          "Important Thing Detail": {
+            "1": "Duplicates: Lists explicitly allow duplicate values; Sets strictly reject duplicate entries.",
+            "2": "Ordering: Lists preserve an ordered sequence; Sets are generally unordered.",
+            "3": "Implementations: Lists use ArrayList or LinkedList; Sets use HashSet, LinkedHashSet, or TreeSet."
+          }
+        }
+      },
+      {
+        "topicId": "t10",
+        "title": "HashSet",
+        "details": {
+          "concept": "A concrete Set implementation that uses an underlying hash table structure to store unique entries.",
+          "benefits": "Provides near-instant performance for inserting, removing, and verifying elements.",
+          "types": "N/A",
+          "syntax": "Set<String> hs = new HashSet<>(32, 0.75f);",
+          "keywords": "HashSet, initial capacity, load factor, hashing",
+          "Important Thing": "Sizing Parameters",
+          "Important Thing Detail": {
+            "1": "Uses a default initial capacity of 16 and a standard load factor of 0.75.",
+            "2": "The load factor dictates how full the set can get before its internal capacity automatically doubles.",
+            "3": "Elements are stored using hashing, meaning a standard HashSet does not preserve any element ordering."
+          }
+        }
+      },
+      {
+        "topicId": "t11",
+        "title": "LinkedHashSet",
+        "details": {
+          "concept": "An extension of HashSet backed by a linked list to maintain predictable element sequencing.",
+          "benefits": "Combines the duplicate-free rules of a Set with the reliable insertion ordering of a List.",
+          "types": "N/A",
+          "syntax": "Set<String> lhs = new LinkedHashSet<>();",
+          "keywords": "LinkedHashSet, insertion order, ordered set",
+          "Important Thing": "Ordering Tracking",
+          "Important Thing Detail": {
+            "1": "Unlike a basic HashSet, elements in a LinkedHashSet are retrieved in the exact order they were inserted."
+          }
+        }
+      },
+      {
+        "topicId": "t12",
+        "title": "TreeSet",
+        "details": {
+          "concept": "A concrete implementation of the SortedSet interface that guarantees elements are always maintained in a sorted order.",
+          "benefits": "Enables automated, continuous data sorting and range extraction queries.",
+          "types": "N/A",
+          "syntax": "TreeSet<Integer> ts = new TreeSet<>();",
+          "keywords": "TreeSet, SortedSet, NavigableSet, sorting, comparison",
+          "Important Thing": "Navigation Features",
+          "Important Thing Detail": {
+            "1": "Elements can be sorted using their natural ordering via Comparable, or by a custom Comparator.",
+            "2": "Implements NavigableSet to offer searching options like lower(), floor(), ceiling(), and higher().",
+            "3": "Includes pollFirst() and pollLast() to safely remove and return the minimum and maximum elements."
+          }
+        }
+      },
+      {
+        "topicId": "t13",
+        "title": "Maps",
+        "details": {
+          "concept": "An association container that maps unique search keys to specific data values.",
+          "benefits": "Enables extremely rapid data retrieval, updates, and removals using custom key identifiers.",
+          "types": "3 types",
+          "syntax": "Map<String, String> map = new HashMap<>();\nmap.put(\"111-34\", \"John\");",
+          "keywords": "Map, key-value, unique key, put, get",
+          "Important Thing": "Key Constants",
+          "Important Thing Detail": {
+            "1": "While List indices must be integers, Map keys can be any object type.",
+            "2": "A map cannot contain duplicate keys; each unique key can map to exactly one value.",
+            "3": "Using put() with an existing key replaces the old value and returns that old value."
+          }
+        }
+      },
+      {
+        "topicId": "t14",
+        "title": "Entry Interface",
+        "details": {
+          "concept": "Map.Entry is a public inner interface defined within the main Map interface, tracking a single key-value pair.",
+          "benefits": "Provides a clean, direct iteration mechanism to examine map keys and values together.",
+          "types": "N/A",
+          "syntax": "for (Map.Entry<String, String> entry : map.entrySet()) {\n    String k = entry.getKey();\n}",
+          "keywords": "Map.Entry, entrySet, keySet, values, inner interface",
+          "Important Thing": "View Collections",
+          "Important Thing Detail": {
+            "1": "keySet() returns a Set collection containing all the unique keys from the map.",
+            "2": "values() returns a standard Collection containing all the value elements from the map.",
+            "3": "entrySet() returns a Set of Map.Entry instances, allowing developers to query pairs via getKey() and getValue()."
+          }
+        }
+      },
+      {
+        "topicId": "t15",
+        "title": "HashMap, LinkedHashMap and TreeMap",
+        "details": {
+          "concept": "The three standard concrete implementations of the Map interface, each featuring unique ordering behaviors.",
+          "benefits": "Allows developers to balance structural execution speeds against key sorting requirements.",
+          "types": "3 implementations",
+          "syntax": "Map<String, Integer> tm = new TreeMap<>();",
+          "keywords": "HashMap, LinkedHashMap, TreeMap, accessOrder, sorting",
+          "Important Thing": "Ordering Behaviors",
+          "Important Thing Detail": {
+            "1": "HashMap is highly efficient for lookups and edits, but its entries are completely unordered.",
+            "2": "LinkedHashMap preserves entry sequencing, supporting either standard insertion order or recent access order.",
+            "3": "TreeMap automatically sorts its keys, using either natural Comparable ordering or a custom Comparator.",
+            "4": "TreeMap implements NavigableMap to offer advanced navigation tools like lowerKey(), floorKey(), and pollFirstEntry()."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 5.1,
+    "unitTitle": "UNIT 5 - PART 1: ABSTRACT CLASSES AND INTERFACES",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Introduction: Abstract Class",
+        "details": {
+          "concept": "An abstract class is a generalized superclass that cannot be instantiated using the new operator. It defines what an object must do without fully specifying how it does it, acting as a structural blueprint for subclasses.",
+          "benefits": "Provides high-level abstraction, clusters common features, and eliminates code redundancy across related classes.",
+          "types": "N/A",
+          "syntax": "abstract class GeometricObject {\n    abstract double getArea();\n}",
+          "keywords": "abstract modifier, blueprint, general superclass, non-instantiable",
+          "Important Thing": "Abstract Methods Inherent Logic",
+          "Important Thing Detail": {
+            "1": "Abstract methods are denoted using the abstract modifier in the method header and are defined completely without any implementation block.",
+            "2": "Concrete subclasses moving down the inheritance hierarchy become more specific and are required to provide the actual method implementations."
+          },
+          "diagram": "graph TD\n  Super[\"GeometricObject (Abstract Class)\"] --> Sub1[\"Circle (Concrete Subclass)\"]\n  Super --> Sub2[\"Rectangle (Concrete Subclass)\"]"
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Important Points",
+        "details": {
+          "concept": "The operational rules, compiler restrictions, and data field interactions associated with maintaining abstract classes and methods.",
+          "benefits": "Prevents runtime structural failures by ensuring strict compilation checks on class definitions.",
+          "types": "N/A",
+          "syntax": "GeometricObject[] objects = new GeometricObject[10];\nobjects[0] = new Circle();",
+          "keywords": "compilation rules, non-static, protected constructor, instantiation exception",
+          "Important Thing": "Critical Structural Rules",
+          "Important Thing Detail": {
+            "1": "An abstract method cannot be contained inside a non-abstract class; if a class holds abstract methods, it must be marked abstract.",
+            "2": "If a subclass extends an abstract parent and fails to implement all its abstract methods, that subclass must also be declared abstract.",
+            "3": "Abstract methods are strictly non-static.",
+            "4": "Constructors in an abstract class are typically defined as protected because they are only intended to be invoked by subclasses through constructor chaining.",
+            "5": "An abstract class can be explicitly used as a reference data type to build reference arrays, even though it cannot be instantiated with 'new'."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Interfaces",
+        "details": {
+          "concept": "An interface is a class-like construct that acts as a strict blueprint containing exclusively static constants and abstract methods. It specifies a common behavior contract for objects of related or completely unrelated classes.",
+          "benefits": "Enforces generic behavior, establishes a solid contract, supports loose coupling, and helps achieve absolute abstraction.",
+          "types": "N/A",
+          "syntax": "modifier interface InterfaceName {\n    // Constant declarations\n    // Abstract method signatures\n}",
+          "keywords": "interface, blueprint, static final, loose coupling",
+          "Important Thing": "Compiler Translations",
+          "Important Thing Detail": {
+            "1": "The Java compiler automatically injects public and abstract modifiers right before all interface method declarations if omitted.",
+            "2": "The compiler automatically prepends public, static, and final modifiers right before any defined interface data members.",
+            "3": "Interfaces compile directly into independent bytecode files exactly like a standard standalone class structure."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Relation between Class and Interface",
+        "details": {
+          "concept": "The relationship layout that establishes inheritance and behavioral implementation pathways between classes and interfaces.",
+          "benefits": "Clearly standardizes structural extensions and behavioral mappings across codebase elements.",
+          "types": "3 relation patterns",
+          "syntax": "class StudentRecord extends Person implements CollegeData { }",
+          "keywords": "extends keyword, implements keyword, class relation, interface relation",
+          "Important Thing": "Structural Extensions",
+          "Important Thing Detail": {
+            "1": "A class can extend another class using the 'extends' keyword.",
+            "2": "A class can implement an interface using the 'implements' keyword.",
+            "3": "An interface can extend another interface using the 'extends' keyword."
+          },
+          "diagram": "graph TD\n  ClassA[class] -->|extends| ClassB[class]\n  ClassC[class] -.->|implements| InterfaceA[interface]\n  InterfaceB[interface] -->|extends| InterfaceC[interface]"
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Multiple Inheritance using Interface",
+        "details": {
+          "concept": "An explicit mechanism allowing a single class to implement multiple interfaces simultaneously, inheriting behavioral method descriptors from all parent interfaces.",
+          "benefits": "Bypasses class inheritance limitations to securely pull shared actions from multiple disconnected systems.",
+          "types": "N/A",
+          "syntax": "public class StudentRecord implements CollegeData, HostelData { }",
+          "keywords": "multiple inheritance, implements, interface grouping",
+          "Important Thing": "Java Language Boundaries",
+          "Important Thing Detail": {
+            "1": "Java fundamentally bans multiple inheritance with standard classes to prevent ambiguity.",
+            "2": "Multiple inheritance is cleanly permitted and achieved in Java exclusively through the use of interfaces."
+          },
+          "diagram": "graph BT\n  StudentRecord[\"StudentRecord (Class)\"] -.->|implements| CollegeData[\"CollegeData (Interface)\"]\n  StudentRecord -.->|implements| HostelData[\"HostelData (Interface)\"]"
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Partial Interface",
+        "details": {
+          "concept": "A design layout where an interim class implements an interface but only overrides a portion of its abstract methods, leaving the rest to be completed by specialized subclasses.",
+          "benefits": "Enables partial class architecture where baseline behaviors are shared early and remaining implementations are deferred.",
+          "types": "N/A",
+          "syntax": "interface Test { void m1(); void m2(); }\nabstract class A implements Test {\n    public void m1() { /* partial logic */ }\n}",
+          "keywords": "partial interface, abstract implementation, deferred methods",
+          "Important Thing": "Implementation Constraint",
+          "Important Thing Detail": {
+            "1": "This layout is structurally possible only when the intermediate class implementing the interface is explicitly declared as an abstract class."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Interface vs Abstract Class",
+        "details": {
+          "concept": "The architectural distinctions between using an abstract class blueprint and using an interface behavioral specification.",
+          "benefits": "Guides system designers to choose the optimal abstraction tool based on variable, constructor, and inheritance needs.",
+          "types": "N/A",
+          "syntax": "interface Run { }\nabstract class Walk { }",
+          "keywords": "comparison, structural differences, abstraction choices, single inheritance",
+          "Important Thing": "Core System Contrasts",
+          "Important Thing Detail": {
+            "1": "Variables: Abstract classes have no restriction on variables; Interfaces mandate all fields must be public static final.",
+            "2": "Constructors: Abstract classes feature constructors invoked via chaining; Interfaces have zero constructors.",
+            "3": "Methods: Abstract classes have no method type restrictions; Interfaces require all methods to be public abstract instance methods.",
+            "4": "Inheritance: Java limits a class to single inheritance for class extension, but allows multiple extensions for interfaces.",
+            "5": "Root Hierarchy: All Java classes trace back to a single common root class (Object), whereas interfaces have no single root hierarchy."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 5.2,
+    "unitTitle": "UNIT 5 - PART 2: EXCEPTION HANDLING",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "Introduction: Exception Handling",
+        "details": {
+          "concept": "An exception is a runtime error object that signals a major processing disruption or condition that blocks normal application execution.",
+          "benefits": "Keeps the application running normally after an error occurs, preventing abnormal application crashes.",
+          "types": "N/A",
+          "syntax": "// Standard crash flow vs Exception handled flow\nint result = 10 / 0; // Throws Exception",
+          "keywords": "exception object, runtime error, abnormal termination, flow maintenance",
+          "Important Thing": "The Interruption Domino Effect",
+          "Important Thing Detail": {
+            "1": "If a runtime error occurs at statement 5 in an unhandled 10-statement sequence, the remaining statements (6 to 10) are skipped entirely.",
+            "2": "Performing proper exception handling guarantees that the rest of the program statements execute successfully despite local faults."
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "KeyWords for Exception Handling",
+        "details": {
+          "concept": "Java provides five keywords to explicitly track, catch, route, and manage runtime application exceptions.",
+          "benefits": "Supplies a clean, standard language vocabulary to construct resilient fault-tolerant programs.",
+          "types": "5 core keywords",
+          "syntax": "try { } catch(Exception e) { } finally { }",
+          "keywords": "try, catch, finally, throw, throws",
+          "Important Thing": "Keyword Descriptions",
+          "Important Thing Detail": {
+            "1": "try: Encapsulates code blocks that might actively produce a runtime exception; must be followed by catch or finally.",
+            "2": "catch: Contains explicit block logic designed to handle a targeted exception type; cannot stand alone without try.",
+            "3": "finally: Executes critical processing statements regardless of whether an exception arises or gets successfully caught.",
+            "4": "throw: Used to manually create and explicitly throw a specific exception object out of a code block.",
+            "5": "throws: Used in method headers to declare possible exceptions that might escape, forcing callers to handle them."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "Exception handing mechanism",
+        "details": {
+          "concept": "The functional try-catch pattern used to wrap error-prone statements and route thrown exceptions into appropriate processing handlers.",
+          "benefits": "Separates the process of error detection (in called methods) from error handling (in calling methods).",
+          "types": "N/A",
+          "syntax": "try {\n    // Code that may cause exceptions\n} catch(ArithmeticException e) {\n    // handling code\n}",
+          "keywords": "try block, multiple catch, exception processing",
+          "Important Thing": "Multiple Catch Routing",
+          "Important Thing Detail": {
+            "1": "Multiple catch blocks are appended below a single try block when that code space can generate completely different exception types.",
+            "2": "The order of specified exceptions matters; catching a superclass type before a subclass type triggers a compile error."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "The finally clause",
+        "details": {
+          "concept": "An optional final block appended to a try-catch engine that is guaranteed to run regardless of how the try block executes.",
+          "benefits": "Guarantees resource cleanup, such as closing open database links, freeing IO streams, or closing files.",
+          "types": "N/A",
+          "syntax": "try { /* ... */ } finally { /* clean up statements */ }",
+          "keywords": "finally block, resource cleanup, execution guarantees, compilation constraints",
+          "Important Thing": "Execution Rules",
+          "Important Thing Detail": {
+            "1": "The finally block must appear at the end of the last catch block; putting it before a catch block breaks compilation.",
+            "2": "Only one finally clause is permitted per try block structure; multiple finally blocks are illegal.",
+            "3": "The finally block will execute even if a return statement is triggered inside the try or catch blocks beforehand.",
+            "4": "If an exception arises that is completely uncaught by any local catch blocks, the finally code executes first before passing the exception up to the caller."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Exception Types",
+        "details": {
+          "concept": "The structural categorization of error objects within Java, all extending from a single parent root class.",
+          "benefits": "Allows clean classification of errors to decide whether tracking is enforced at compile time or runtime.",
+          "types": "3 categories",
+          "syntax": "throw new IOException(); // Checked exception",
+          "keywords": "Throwable, checked exception, unchecked exception, system errors",
+          "Important Thing": "The Hierarchy Categories",
+          "Important Thing Detail": {
+            "1": "Throwable: The absolute root class of the entire Java Exception hierarchy.",
+            "2": "Checked Exceptions: Inspected by the compiler at compile time; the programmer must handle or declare them, or compilation fails.",
+            "3": "Unchecked Exceptions (Runtime): Bypassed by compiler checks; occur purely during execution. Handling them is optional but recommended.",
+            "4": "System Errors: Represented by the Error class; denote severe internal JVM problems (like OutOfMemoryError) beyond user control."
+          },
+          "diagram": "graph TD\n  Throwable[\"Throwable\"]\n  Throwable --> Exception[\"Exception\"]\n  Throwable --> Error[\"Error\"]\n  Exception --> ClassNotFoundException[\"ClassNotFoundException\"]\n  Exception --> IOException[\"IOException\"]\n  Exception --> RuntimeException[\"RuntimeException\"]\n  RuntimeException --> ArithmeticException[\"ArithmeticException\"]\n  RuntimeException --> NullPointerException[\"NullPointerException\"]\n  RuntimeException --> IndexOutOfBoundsException[\"IndexOutOfBoundsException\"]\n  RuntimeException --> IllegalArgumentException[\"IllegalArgumentException\"]\n  Error --> LinkageError[\"LinkageError\"]\n  Error --> VirtualMachineError[\"VirtualMachineError\"]"
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Throw Keyword",
+        "details": {
+          "concept": "The throw keyword is used to manually instantiate and explicitly throw an individual exception instance out of a code section.",
+          "benefits": "Allows programmers to intentionally trip an error response when custom business parameters are violated.",
+          "types": "N/A",
+          "syntax": "if (score < 0) {\n    throw new IllegalArgumentException(\"Wrong Argument\");\n}",
+          "keywords": "throw keyword, manual throwing, instance generation",
+          "Important Thing": "Instantiation Pattern",
+          "Important Thing Detail": {
+            "1": "Requires creating a new instance of an appropriate exception type, often passing an explicit error message string into its constructor."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Throws Keyword",
+        "details": {
+          "concept": "The throws keyword is appended to method headers to openly list all potential checked exceptions that the method might throw during execution.",
+          "benefits": "Alerts calling methods to upcoming errors, forcing them to wrap invocations in try-catch blocks or declare the exception themselves.",
+          "types": "N/A",
+          "syntax": "public void myMethod() throws IOException, SQLException { }",
+          "keywords": "throws declaration, method signature, checked enforcement",
+          "Important Thing": "Declaration Rules",
+          "Important Thing Detail": {
+            "1": "The throws keyword does not actually throw an exception; it serves solely as a method signature declaration statement.",
+            "2": "Multiple checked exceptions can be specified in a comma-separated list following the throws keyword."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Exception handling model",
+        "details": {
+          "concept": "The complete execution lifecycle built upon three fundamental behaviors: declaring, throwing, and catching an exception.",
+          "benefits": "Establishes a predictable, standardized framework to handle and track down faults across deep execution stacks.",
+          "types": "N/A",
+          "syntax": "void p1() {\n    try { p2(); } catch (IOException e) { }\n}",
+          "keywords": "call stack, exception propagation, exception handler, stack unwinding",
+          "Important Thing": "Call Stack Propagation",
+          "Important Thing Detail": {
+            "1": "When a method triggers an exception, remaining local logic is skipped and Java searches backward through the call stack for an appropriate handler.",
+            "2": "If the exception type matches a catch parameter block along the path, it is caught and processed by that handler.",
+            "3": "If an exception unrolls through the entire call stack without matching a catch block, the application aborts and terminates unexpectedly.",
+            "4": "Java strictly enforces checked exception handling; a method calling a checked-error source must catch it or declare it via throws."
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "Custom Exception",
+        "details": {
+          "concept": "A custom exception is a user-defined exception class created by a developer to track domain-specific application errors.",
+          "benefits": "Improves code debugging by introducing distinct, application-specific exception types instead of generic system errors.",
+          "types": "N/A",
+          "syntax": "class InvalidAgeException extends Exception {\n    public InvalidAgeException(String msg) { super(msg); }\n}",
+          "keywords": "user-defined exception, custom error, class extension",
+          "Important Thing": "Creation Rule",
+          "Important Thing Detail": {
+            "1": "Custom exception structures are built by creating a standard class that explicitly extends the core Exception class or any of its subclasses."
+          }
+        }
+      }
+    ]
+  },
+  {
+  "unitId": 6,
+  "unitTitle": "UNIT 6: CONCURRENCY CONTROL",
+  "topics": [
+    {
+      "topicId": "t1",
+      "title": "Thread",
+      "details": {
+        "concept": "A thread is a lightweight sub-process, representing the absolute smallest unit of code processing within an application. Multithreading enables multiple threads to run simultaneously.",
+        "benefits": "Saves critical system memory by utilizing a shared memory area instead of allocating distinct, separate memory blocks. It minimizes context-switching delays and ensures that an exception inside one independent thread will not break or crash other threads.",
+        "types": "N/A",
+        "syntax": "// Threads run independently inside a shared memory workspace\nThread t = Thread.currentThread();",
+        "keywords": "thread, lightweight sub-process, multithreading, shared memory, thread independence",
+        "Important Thing": "Thread Memory & Isolation",
+        "Important Thing Detail": {
+          "1": "Threads save significant memory overhead because they continuously work within a shared memory space without requesting isolated blocks.",
+          "2": "Threads are fully isolated from a fault perspective; if a critical exception stops one thread, all surrounding threads continue executing unharmed."
+        }
+      }
+    },
+    {
+      "topicId": "t2",
+      "title": "Thread State and Life Cycle",
+      "details": {
+        "concept": "A thread continuously travels through explicit operational states during its execution life cycle, tracked via java.lang.Thread.State ENUM constants.",
+        "benefits": "Allows the JVM thread scheduler to systematically balance, pause, track, and execute multiple operations without resource starvation.",
+        "types": "5 states",
+        "syntax": "Thread.State state = Thread.currentThread().getState();",
+        "keywords": "Thread.State, lifecycle, New, Active, Blocked, Waiting, Timed Waiting, Terminated",
+        "Important Thing": "State Transitions",
+        "Important Thing Detail": {
+          "1": "New: The instance is built but start() has not been invoked yet.",
+          "2": "Active (Runnable/Running): Triggered by start(); Runnable means waiting for the scheduler to select it, while Running means it is actively executing.",
+          "3": "Blocked or Waiting: Blocked occurs when waiting for a resource lock (like a printer in use); Waiting means it stays inactive while waiting for a notification.",
+          "4": "Timed Waiting: The thread lies in a waiting state for a specific span of time rather than forever (e.g., calling sleep()), preventing starvation issues.",
+          "5": "Terminated/Dead: The run() method exits normally after completion, or terminates abnormally via an unhandled fault. A dead thread cannot be respawned."
+        },
+        "diagram": "graph TD\n  New[\"NEW<br>(Instance created)\"] -->|start| Runnable[\"RUNNABLE<br>(Waiting for CPU)\"]\n  Runnable <-->|Scheduler selection| Running[\"RUNNING<br>(Executing run)\"]\n  Running -->|Waiting for lock| Blocked[\"BLOCKED<br>(Acquiring lock)\"]\n  Blocked -->|Lock acquired| Runnable\n  Running -->|Waiting for notify| Waiting[\"WAITING<br>(Waiting indefinitely)\"]\n  Waiting -->|Notification acquired| Runnable\n  Running -->|sleep/timeout| TimedWaiting[\"TIMED_WAITING<br>(Specific duration)\"]\n  TimedWaiting -->|Timeout completed| Runnable\n  Running -->|run exited| Terminated[\"TERMINATED<br>(Dead/No respawn)\"]"
+      }
+    },
+    {
+      "topicId": "t3",
+      "title": "Thread Class",
+      "details": {
+        "concept": "The central java.lang.Thread class extends Object and implements Runnable, delivering constructors and methods to perform core thread actions.",
+        "benefits": "Provides a comprehensive API to directly query, configure, control, and adjust concurrent processing tasks.",
+        "types": "N/A",
+        "syntax": "Thread t = new Thread();\nt.setName(\"CustomThread\");\nt.setPriority(Thread.MAX_PRIORITY);",
+        "keywords": "Thread class, Thread API, methods, thread control",
+        "Important Thing": "Core Thread Operations",
+        "Important Thing Detail": {
+          "1": "Execution Control: start() initiates execution; run() defines the execution action; sleep(time) pauses it.",
+          "2": "Information Retrieval: currentThread() references the active thread object; getName() and getId() fetch tracking data.",
+          "3": "Coordination & Priority: join() blocks until a target thread dies; setPriority() updates priority; yield() temporarily pauses to let others run.",
+          "4": "Inter-thread Alerts: notify() wakes up a single waiting thread; notifyAll() wakes up all waiting threads associated with an object."
+        }
+      }
+    },
+    {
+      "topicId": "t4",
+      "title": "Two ways to create a thread",
+      "details": {
+        "concept": "Java provides two separate design mechanisms to build and launch custom concurrent processing paths.",
+        "benefits": "Offers implementation flexibility, allowing developers to choose between clean class extensions or keeping inheritance open by implementing interfaces.",
+        "types": "2 mechanisms",
+        "syntax": "// Way 1: Extending Thread class\nclass MyThread extends Thread {\n    public void run() { }\n}\nnew MyThread().start();\n\n// Way 2: Implementing Runnable\nclass MyRunnable implements Runnable {\n    public void run() { }\n}\nnew Thread(new MyRunnable()).start();",
+        "keywords": "Extending Thread, Implementing Runnable, run override, start invocation",
+        "Important Thing": "Creation Workflows",
+        "Important Thing Detail": {
+          "1": "Extending Thread: Subclass java.lang.Thread, override run(), instantiate your custom subclass, and call start() to initiate execution.",
+          "2": "Implementing Runnable: Implement java.lang.Runnable, override run(), pass its instance into a new base Thread object, and invoke start() on that Thread object.",
+          "3": "The start() invocation is what moves a thread to active and internally triggers the target run() logic."
+        }
+      }
+    },
+    {
+      "topicId": "t5",
+      "title": "Thread Synchronization",
+      "details": {
+        "concept": "Concurrency synchronization controls multi-threaded access to shared resources, ensuring only one thread can manipulate the resource at a time.",
+        "benefits": "Prevents concurrent thread interference and eliminates unexpected data consistency problems when threads target matching variables.",
+        "types": "3 ways",
+        "syntax": "synchronized(sharedObject) {\n    // Critical section code block securely locked\n}",
+        "keywords": "synchronized keyword, lock management, resource sharing, thread interference, data consistency",
+        "Important Thing": "Lock Blocking Behavior",
+        "Important Thing Detail": {
+          "1": "When multiple threads concurrently target an un-synchronized resource, they can produce erroneous, unpredictable, and broken results.",
+          "2": "Synchronized areas mark code chunks with the synchronized keyword, anchoring execution safety to a specific tracking object.",
+          "3": "Only one thread can execute inside blocks synchronized on the same object at any given moment; all other threads are blocked until the occupant exits."
+        }
+      }
+    },
+    {
+      "topicId": "t6",
+      "title": "Synchronization method",
+      "details": {
+        "concept": "Declaring an entire method with the synchronized keyword to lock the parent object instance for any shared usage.",
+        "benefits": "Provides an immediate, clean object-level lock covering the entire scope of a method automatically.",
+        "types": "N/A",
+        "syntax": "public synchronized void updateData() {\n    // Entire method is automatically locked per object instance\n}",
+        "keywords": "synchronized method, object lock, automatic release",
+        "Important Thing": "Lock Lifecycle",
+        "Important Thing Detail": {
+          "1": "When a thread invokes a synchronized method, it automatically acquires the implicit lock for that object instance.",
+          "2": "The acquired lock is released automatically once the thread completes its task or exits the method space."
+        }
+      }
+    },
+    {
+      "topicId": "t7",
+      "title": "Synchronization Block",
+      "details": {
+        "concept": "A specialized code block used to apply synchronization specifically to a targeted resource or isolated line range within a method.",
+        "benefits": "Optimizes performance by letting un-synchronized lines run freely, restricting thread waiting exclusively to the critical lines of code.",
+        "types": "N/A",
+        "syntax": "public void printReport() {\n    // Un-synchronized lines run concurrently...\n    synchronized(this) {\n        // Only these lines are locked sequentially\n    }\n}",
+        "keywords": "synchronized block, localized lock, scope optimization, specific resource",
+        "Important Thing": "Scope Optimization",
+        "Important Thing Detail": {
+          "1": "If a method contains 50 lines of logic but only 5 lines perform critical updates, a synchronized block can encapsulate just those 5 lines.",
+          "2": "Placing all method content inside a synchronized block yields identical behavior to a standard synchronized method."
+        }
+      }
+    },
+    {
+      "topicId": "t8",
+      "title": "Class Synchronization",
+      "details": {
+        "concept": "Class synchronization is achieved using static synchronized methods, anchoring execution locks to the Class object itself instead of a specific instance.",
+        "benefits": "Guarantees data safety across static fields, locking out concurrent threads even if they access the code via entirely different object instances.",
+        "types": "N/A",
+        "syntax": "public static synchronized void globalClassUpdate() {\n    // Lock belongs directly to ClassName.class, not 'this' instance\n}",
+        "keywords": "static synchronized, class lock, static methods, universal synchronization",
+        "Important Thing": "Lock Boundary Shift",
+        "Important Thing Detail": {
+          "1": "While standard synchronized methods lock individual instances, static synchronized methods shift locking to provide synchronization on the class level."
+        }
+      }
+    }
+  ]
+},
+{
+  "unitId": 7,
+  "unitTitle": "UNIT 7: I/O MANAGEMENT AND GENERICS",
+  "topics": [
+    {
+      "topicId": "t1",
+      "title": "I/O Stream",
+      "details": {
+        "concept": "Java I/O (Input and Output) is used to process inputs and generate outputs, relying on stream operations to keep file handling tasks fast. I/O streams operate continuously to read or store data persistently into files.",
+        "benefits": "Enables robust, fast handling of persistent file operations within any Java application.",
+        "types": "N/A",
+        "syntax": "// Input data passes from Source via System.in into Classes\n// Output data passes from Classes via System.out into Destination",
+        "keywords": "I/O Stream, persistent operation, file handling, java.io package",
+        "Important Thing": "System Core Layout",
+        "Important Thing Detail": {
+          "1": "Keyboard inputs run via System.in to be read by framework classes.",
+          "2": "Program text results run via System.out to write out data to the console."
+        },
+        "diagram": "graph LR\n  Keyboard[\"Keyboard\"] -->|System.in Reading| Classes[\"Classes\"]\n  Classes -->|Store| Files[\"Files\"]\n  Files -->|Reading| Classes\n  Classes -->|System.out Writing| Console[\"Console\"]"
+      }
+    },
+    {
+      "topicId": "t2",
+      "title": "Stream",
+      "details": {
+        "concept": "A stream is an ongoing sequence of byte data flowing from an origin target to a destination target without any index structures.",
+        "benefits": "Provides a uniform data pipeline model to read or write streams of content from files, devices, or networking sockets.",
+        "types": "2 stream categories",
+        "syntax": "InputStream is = new FileInputStream(\"source.dat\");\nOutputStream os = new FileOutputStream(\"dest.dat\");",
+        "keywords": "stream, sequence of bytes, byte stream, character stream",
+        "Important Thing": "Standard Console Streams",
+        "Important Thing Detail": {
+          "1": "System.out: Standard output stream attached directly to the system console.",
+          "2": "System.in: Standard input stream attached directly to the keyboard input.",
+          "3": "System.err: Standard error stream dedicated to displaying system error messages.",
+          "4": "Byte Streams: Handle inputs and outputs as 8-bit bytes (e.g., FileInputStream and FileOutputStream).",
+          "5": "Character Streams: Handle inputs and outputs as 16-bit Unicode characters (e.g., FileReader and FileWriter)."
+        }
+      }
+    },
+    {
+      "topicId": "t3",
+      "title": "Text I/O",
+      "details": {
+        "concept": "Text I/O is built directly on top of basic binary I/O pipelines, introducing an abstraction layer that handles character encoding and decoding automatically.",
+        "benefits": "Allows files to be easily viewed, handled, or edited using basic desktop text utility apps like Notepad.",
+        "types": "N/A",
+        "syntax": "Scanner input = new Scanner(new File(\"temp.txt\"));\nString line = input.nextLine();",
+        "keywords": "text file, character sequence, automatic encoding, Scanner class",
+        "Important Thing": "Encoding Adjustments",
+        "Important Thing Detail": {
+          "1": "The JVM converts internal Unicode values to file-specific encodings when saving a character.",
+          "2": "The JVM converts file-specific encodings back into Unicode values when loading a character.",
+          "3": "Scanner acts as a standard input class to load character text lines via an input object pipeline."
+        }
+      }
+    },
+    {
+      "topicId": "t4",
+      "title": "Binary I/O",
+      "details": {
+        "concept": "Binary I/O performs raw, direct bit stream copies of memory data into files without executing any encoding conversions.",
+        "benefits": "Much more efficient to process than text I/O because it bypasses overhead from encoding translations.",
+        "types": "N/A",
+        "syntax": "DataOutputStream dos = new DataOutputStream(new FileOutputStream(\"data.dat\"));\ndos.writeInt(199);",
+        "keywords": "binary file, memory copy, raw bits, process efficiency",
+        "Important Thing": "Memory Invariance",
+        "Important Thing Detail": {
+          "1": "If you save a numeric value using binary I/O, the exact bit values sitting in system memory are copied into the file.",
+          "2": "For example, the byte value 199 is kept as 0xC7 inside memory and appears as exactly 0xC7 inside the raw binary file."
+        }
+      }
+    },
+    {
+      "topicId": "t5",
+      "title": "Binary I/O vs Text I/O",
+      "details": {
+        "concept": "A direct comparison between raw byte stream mapping and abstracted character line encoding/decoding workflows.",
+        "benefits": "Helps developers choose between readable text editors and high-speed, portable data storage formats.",
+        "types": "N/A",
+        "syntax": "// Text I/O program -> Encoding/Decoding -> File storage\n// Binary I/O program -> Direct byte write -> File storage",
+        "keywords": "comparison, encoding translation, processing efficiency, portability",
+        "Important Thing": "Core System Contrasts",
+        "Important Thing Detail": {
+          "1": "Conversions: Text I/O requires continuous character translation; Binary I/O requires zero conversions.",
+          "2": "Efficiency: Binary I/O is much faster because it avoids encoding/decoding overhead.",
+          "3": "Portability: Binary files are independent of host machine encoding schemes, making them highly portable.",
+          "4": "Application: Java compiled .class files are binary, allowing them to run on any JVM across different host platforms."
+        }
+      }
+    },
+    {
+      "topicId": "t6",
+      "title": "File Input Stream",
+      "details": {
+        "concept": "The FileInputStream class extends InputStream to provide raw byte-reading features from local physical files.",
+        "benefits": "Provides a direct, low-level streaming channel to extract byte sequences from a file resource.",
+        "types": "N/A",
+        "syntax": "FileInputStream input = new FileInputStream(\"filename.txt\");\nint value = input.read();",
+        "keywords": "FileInputStream, byte reading, available bytes, close stream",
+        "Important Thing": "Core Methods",
+        "Important Thing Detail": {
+          "1": "available(): Returns the estimated count of bytes that can be safely read from the file stream.",
+          "2": "read(): Extracts the next individual byte of data from the input file stream.",
+          "3": "read(byte[] b): Reads up to b.length bytes from the stream into a target byte array block.",
+          "4": "close(): Closes the stream and frees up associated system resources."
+        }
+      }
+    },
+    {
+      "topicId": "t7",
+      "title": "File Output Stream",
+      "details": {
+        "concept": "The FileOutputStream class extends OutputStream to write raw data bytes to local file targets.",
+        "benefits": "Supports direct byte saving and file appending modes to modify local contents dynamically.",
+        "types": "N/A",
+        "syntax": "FileOutputStream output = new FileOutputStream(\"filename.txt\", true);\noutput.write(65);",
+        "keywords": "FileOutputStream, byte writing, file append, stream close",
+        "Important Thing": "Append Flags",
+        "Important Thing Detail": {
+          "1": "Constructors allow specifying an optional boolean append flag. If set to true, output data is appended to the end of an existing file.",
+          "2": "write(byte[] ary): Writes the entire contents of a byte array to the target file destination."
+        }
+      }
+    },
+    {
+      "topicId": "t8",
+      "title": "Data Input Stream",
+      "details": {
+        "concept": "DataInputStream implements the DataInput interface, enabling applications to parse raw data bytes into primitive values or strings in a machine-independent way.",
+        "benefits": "Allows primitive field attributes to be read cleanly without requiring manual bit-shifting code.",
+        "types": "N/A",
+        "syntax": "DataInputStream inst = new DataInputStream(new FileInputStream(\"test.txt\"));\nint i = inst.readInt();",
+        "keywords": "DataInputStream, DataInput, primitive reading, readInt, readUTF",
+        "Important Thing": "Primitive Typing Read Calls",
+        "Important Thing Detail": {
+          "1": "readInt(): Consumes 4 incoming bytes to construct and return a standard primitive int value.",
+          "2": "readChar(): Consumes 2 incoming bytes to return a standard primitive char value.",
+          "3": "readDouble(): Consumes 8 incoming bytes to return a standard primitive double value.",
+          "4": "readUTF(): Decodes and reads an inline text string formatted using the standard UTF-8 standard."
+        }
+      }
+    },
+    {
+      "topicId": "t9",
+      "title": "Data Output Stream",
+      "details": {
+        "concept": "DataOutputStream implements the DataOutput interface, translating primitive values and strings into byte sequences for output streams.",
+        "benefits": "Guarantees portable primitive data storage across diverse external computing systems.",
+        "types": "N/A",
+        "syntax": "DataOutputStream data = new DataOutputStream(new FileOutputStream(\"out.txt\"));\ndata.writeInt(65);\ndata.flush();",
+        "keywords": "DataOutputStream, DataOutput, primitive writing, writeInt, flush",
+        "Important Thing": "Writing Actions",
+        "Important Thing Detail": {
+          "1": "writeInt(int v): Converts a standard int value into a 4-byte sequence on the stream.",
+          "2": "writeBoolean(boolean v): Writes a boolean out as a single 1-byte value.",
+          "3": "writeUTF(String str): Writes a text string using portable UTF-8 encoding patterns.",
+          "4": "flush(): Forces any cached output bytes out of the stream buffer into the underlying storage."
+        }
+      }
+    },
+    {
+      "topicId": "t10",
+      "title": "Buffered Input Stream",
+      "details": {
+        "concept": "BufferedInputStream overlays a memory buffer onto an existing input stream to read data in blocks, reducing disk access requests.",
+        "benefits": "Speeds up application input tasks by delivering items out of memory cache rather than making frequent disk lookups.",
+        "types": "N/A",
+        "syntax": "BufferedInputStream bis = new BufferedInputStream(new FileInputStream(\"test.dat\"));",
+        "keywords": "BufferedInputStream, memory buffer, reading cache, disk optimization",
+        "Important Thing": "Buffering Mechanics",
+        "Important Thing Detail": {
+          "1": "Reads an entire block of data from disk into a memory buffer at once, minimizing disk reads.",
+          "2": "Individual data requests are then served straight out of the memory buffer to optimize speed."
+        },
+        "diagram": "graph LR\n  Disk[\"Disk: Block of Data\"] --> Buffer[\"Memory Buffer\"]\n  Buffer --> Program[\"Program: Read Individual Data\"]"
+      }
+    },
+    {
+      "topicId": "t11",
+      "title": "Buffered Output Stream",
+      "details": {
+        "concept": "BufferedOutputStream buffers individual write requests in memory before committing them to disk as a single block.",
+        "benefits": "Improves file-saving performance by minimizing frequent disk write operations.",
+        "types": "N/A",
+        "syntax": "BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(\"out.dat\"));\nbos.write(value);\nbos.flush();",
+        "keywords": "BufferedOutputStream, output buffer, block writing, flush",
+        "Important Thing": "Forced Commits",
+        "Important Thing Detail": {
+          "1": "Individual data updates are written directly to the buffer inside memory first.",
+          "2": "flush() forces the stream to push cached block updates down into the physical disk destination."
+        },
+        "diagram": "graph LR\n  Program[\"Program: Write Individual Data\"] --> Buffer[\"Memory Buffer\"]\n  Buffer --> Disk[\"Disk: Block of Data\"]"
+      }
+    },
+    {
+      "topicId": "t12",
+      "title": "Random Access Files",
+      "details": {
+        "concept": "The RandomAccessFile class implements both DataInput and DataOutput, allowing data to be read or written at any arbitrary position within a file.",
+        "benefits": "Enables non-sequential file edits, letting you jump directly to any byte position instantly.",
+        "types": "2 access modes",
+        "syntax": "RandomAccessFile raf = new RandomAccessFile(\"test.dat\", \"rw\");",
+        "keywords": "RandomAccessFile, file pointer, seek position, mode r, mode rw",
+        "Important Thing": "Pointer Adjustments",
+        "Important Thing Detail": {
+          "1": "Modes: Can be opened under read-only 'r' or read-write 'rw' access behaviors[cite: 1, 8].",
+          "2": "getFilePointer(): Returns the active byte offset from the start of the file where the next operation will occur.",
+          "3": "seek(long pos): Moves the internal file pointer to a precise target byte position.",
+          "4": "If you read a 4-byte integer using readInt(), the file pointer automatically advances 4 bytes ahead."
+        },
+        "diagram": "graph TD\n  Before[\"Before readInt() -> Pointer at current byte\"]\n  After[\"After readInt() -> Pointer advanced 4 bytes ahead\"]"
+      }
+    },
+    {
+      "topicId": "t13",
+      "title": "Generic in File",
+      "details": {
+        "concept": "Generics enforce type safety by ensuring collections handle a uniform, homogeneous object type, introduced in JDK 5 to catch type mismatches at compile time.",
+        "benefits": "Makes code stable by shifting data type validations from runtime into compile-time checks.",
+        "types": "N/A",
+        "syntax": "List<String> list = new ArrayList<String>();\nlist.add(\"hello\");",
+        "keywords": "Generics, type safety, compile check, homogeneous container",
+        "Important Thing": "Type Constraints",
+        "Important Thing Detail": {
+          "1": "Generic type parameters can only accept reference types; primitive types (like int, float, char) are strictly banned."
+        }
+      }
+    },
+    {
+      "topicId": "t14",
+      "title": "Advantages of Generics",
+      "details": {
+        "concept": "The structural and programmatic benefits gained by applying generic parameter types to classes and methods.",
+        "benefits": "Eliminates ClassCastExceptions at runtime and removes verbose type-casting code.",
+        "types": "3 core benefits",
+        "syntax": "// Without Generics: String s = (String) list.get(0);\n// With Generics: String s = list.get(0);",
+        "keywords": "Type-safety, type casting, compile-time validation",
+        "Important Thing": "The Core Improvements",
+        "Important Thing Detail": {
+          "1": "Type-Safety: Container structures are restricted to holding only a single, designated type of object.",
+          "2": "No Type Casting: Eliminates the need for manual type casting when pulling items out of a collection.",
+          "3": "Compile-Time Checking: Validates data types during compilation to ensure type mismatches trigger errors early."
+        }
+      }
+    },
+    {
+      "topicId": "t15",
+      "title": "Generic Class",
+      "details": {
+        "concept": "A class that features a type parameter placeholder, allowing it to adapt safely to various reference types specified during instantiation.",
+        "benefits": "Enables the creation of reusable, type-safe structures that support automatic boxing and unboxing[cite: 7, 8].",
+        "types": "N/A",
+        "syntax": "class MyClass<T> {\n    private T content;\n    public T getValue() { return content; }\n}",
+        "keywords": "generic class, type parameter, reference type, autoboxing",
+        "Important Thing": "Automation Features",
+        "Important Thing Detail": {
+          "1": "To track primitive integers in generic structures, use object wrappers (e.g., ArrayList&lt;Integer&gt;).",
+          "2": "Autoboxing automatically wraps a primitive value (like 5) into its corresponding wrapper object (new Integer(5)).",
+          "3": "Autounboxing automatically unwraps wrapper objects back into raw primitive variables during assignment."
+        }
+      }
+    },
+    {
+      "topicId": "t16",
+      "title": "Generic Method",
+      "details": {
+        "concept": "Generic methods introduce their own independent type parameters, restricting the scope of those type parameters to the method block.",
+        "benefits": "Allows individual methods to operate on a variety of object types independently of the class's generic scope.",
+        "types": "N/A",
+        "syntax": "static <E> void printArray(E[] elements) {\n    // Type parameter E is isolated to this method block\n}",
+        "keywords": "generic method, type parameter scope, method parameters",
+        "Important Thing": "Method Variations",
+        "Important Thing Detail": {
+          "1": "Generic type parameters are fully supported across static methods, non-static instance methods, and class constructors."
+        }
+      }
+    },
+    {
+      "topicId": "t17",
+      "title": "Raw Types and Backward Compatibility",
+      "details": {
+        "concept": "A raw type refers to using a generic class structure without providing a specific type parameter argument.",
+        "benefits": "Maintains backward compatibility, allowing legacy pre-JDK 1.5 code to compile alongside newer versions.",
+        "types": "N/A",
+        "syntax": "List rawList = new ArrayList(); // Raw type usage\nList<String> typedList = new ArrayList<>(); // Parameterized type",
+        "keywords": "raw type, backward compatibility, type unsafe, manual cast",
+        "Important Thing": "Raw Type Vulnerabilities",
+        "Important Thing Detail": {
+          "1": "Raw types lack type-safety guarantees, shifting type errors from compile time into runtime ClassCastExceptions.",
+          "2": "They require manual type casting when retrieving items, making code less expressive and harder to document."
+        }
+      }
+    },
+    {
+      "topicId": "t18",
+      "title": "Wildcard Generic Types",
+      "details": {
+        "concept": "The question mark '?' symbol acts as a wildcard parameter in generics to represent an unknown type match.",
+        "benefits": "Increases method flexibility, enabling parameters to accept a range of generic class variants.",
+        "types": "N/A",
+        "syntax": "void processElements(List<?> elements) { }",
+        "keywords": "wildcard parameter, question mark, type argument restrictions",
+        "Important Thing": "Usage Constraints",
+        "Important Thing Detail": {
+          "1": "Wildcards are valid when defining method parameters, fields, return types, or local variable declarations.",
+          "2": "Wildcards are strictly banned when instantiating a generic class instance, invoking a generic method directly, or declaring a supertype."
+        }
+      }
+    },
+    {
+      "topicId": "t19",
+      "title": "Unbounded Wildcards",
+      "details": {
+        "concept": "An unbounded wildcard is defined using List&lt;?&gt;, indicating a collection of a completely unknown or unspecified type.",
+        "benefits": "Useful when method logic relies entirely on the base Object class or does not depend on the specific type parameter.",
+        "types": "N/A",
+        "syntax": "public static void printList(List<?> list) {\n    for (Object elem : list) { System.out.println(elem); }\n}",
+        "keywords": "unbounded wildcard, unknown type, object functionality",
+        "Important Thing": "Scenario Applicability",
+        "Important Thing Detail": {
+          "1": "Ideal for methods whose logic is independent of the underlying type parameter."
+        }
+      }
+    },
+    {
+      "topicId": "t20",
+      "title": "Upper Bounded Wildcards",
+      "details": {
+        "concept": "Upper bounded wildcards restrict an unknown type argument to a specific type or any of its sub-types.",
+        "benefits": "Relaxes variable assignments by letting methods accept collections of a class or any of its extended subclasses.",
+        "types": "N/A",
+        "syntax": "List<? extends Number> numList;\npublic static void drawShapes(List<? extends Shape> lists) { }",
+        "keywords": "upper bound, extends keyword, type restriction, subclass matching",
+        "Important Thing": "Syntax Rules",
+        "Important Thing Detail": {
+          "1": "Declared using the wildcard character '?' followed by the 'extends' (for classes) or 'implements' (for interfaces) keyword, followed by the upper bound type."
+        }
+      }
+    },
+    {
+      "topicId": "t21",
+      "title": "Lower Bounded Wildcards",
+      "details": {
+        "concept": "Lower bounded wildcards restrict an unknown type argument to a specific type or any of its super-types.",
+        "benefits": "Provides less restrictive access than exact type matches, allowing methods to handle a class alongside its parent types.",
+        "types": "N/A",
+        "syntax": "List<? super Integer> intSuperList;",
+        "keywords": "lower bound, super keyword, superclass matching, type relaxation",
+        "Important Thing": "Scope Variance",
+        "Important Thing Detail": {
+          "1": "Declared using the wildcard character '?' followed by the 'super' keyword, followed by the lower bound type.",
+          "2": "List&lt;? super Integer&gt; can accept collections of type Integer, Number, or Object, making it more flexible than List&lt;Integer&gt;."
+        }
+      }
+    }
+  ]
+},
+  {
+    "unitId": 8.1,
+    "unitTitle": "UNIT 8 - PART 1: JAVAFX FOUNDATIONS AND UI LAYOUTS",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "What is JavaFX?",
+        "details": {
+          "concept": "JavaFX is an open-source, next-generation client application platform designed for developing rich client applications across desktop, mobile, and embedded systems. It functions as a standalone component built on top of the standard JDK.",
+          "benefits": "Provides a modern, efficient, and fully featured toolkit that streamlines the creation of rich client platforms.",
+          "types": "N/A",
+          "syntax": "public class MyApplication extends javafx.application.Application { }",
+          "keywords": "JavaFX, open source, client platform, desktop, standalone, client application platform",
+          "Important Thing": "Foundational Requirement",
+          "Important Thing Detail": {
+            "1": "Every single JavaFX GUI program must be defined within a custom class that explicitly extends the core javafx.application.Application parent class."
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Feature of JavaFX",
+        "details": {
+          "concept": "The built-in software characteristics, development tools, and APIs that define the JavaFX ecosystem.",
+          "benefits": "Enables creation of highly expressive GUIs while preserving backward compatibility with older Java interface libraries.",
+          "types": "N/A",
+          "syntax": "// Swing Interoperability via SwingNode\nSwingNode swingNode = new SwingNode();",
+          "keywords": "Java Library, FXML, Scene Builder, UI controls, CSS styling, Swing interoperability, API",
+          "Important Thing": "Core Ecosystem Features",
+          "Important Thing Detail": {
+            "1": "Java Library: Composed of native classes and interfaces written entirely in Java.",
+            "2": "FXML & Scene Builder: FXML is an XML-based declarative markup language used to design enhanced GUIs, which can be visually generated using the Scene Builder tool.",
+            "3": "Built-in Controls & CSS: Packages standard interactive widgets along with support for web-style CSS formatting.",
+            "4": "Swing Interoperability: JavaFX applications can embed legacy Swing code using the SwingNode class, easing migration paths."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "JavaFX Architecture",
+        "details": {
+          "concept": "The internal layered architecture of components that coordinate to compile, execute, and render a graphics application.",
+          "benefits": "Separates low-level graphics processing hardware pipelines from the high-level code interfaces handled by application developers.",
+          "types": "N/A",
+          "syntax": "// Architecture coordinates low level engines silently underneath JavaFX APIs",
+          "keywords": "Architecture, Prism, Glass, Quantum Toolkit, WebView, Media Engine, Scene Graph",
+          "Important Thing": "Architectural Subsystems",
+          "Important Thing Detail": {
+            "1": "Scene Graph: The absolute starting construction point holding graphical application primitives termed as nodes.",
+            "2": "Prism: A high-performance, hardware-accelerated graphics pipeline capable of rendering both 2D and 3D imagery.",
+            "3": "Glass Windowing Toolkit (GWT): Connects JavaFX to the native OS, managing windows, timers, surfaces, and events.",
+            "4": "Quantum Toolkit: An abstraction layer that ties Prism and GWT together, making low-level engines available to the JavaFX API.",
+            "5": "WebView & Media Engine: WebView uses WebKit to render HTML5/CSS content, while the Media Engine utilizes GStreamer for audio/video playback."
+          },
+          "diagram": "graph TD\n  subgraph JavaFX_API_Layer [JavaFX API Layer]\n    JFX_API[\"JavaFX API\"]\n  end\n  subgraph Subsystems_Layer [Subsystems Layer]\n    SceneGraph[\"Scene Graph\"]\n    WebView[\"Web View (WebKit)\"]\n    Media[\"Media (GStreamer)\"]\n  end\n  subgraph Toolkit_Layer [Toolkit Abstraction Layer]\n    Quantum[\"Quantum Toolkit\"]\n  end\n  subgraph Engine_Layer [Graphics & Windowing Engine Layer]\n    Prism[\"Prism Graphics Pipeline\"]\n    Glass[\"Glass Windowing Toolkit (GWT)\"]\n  end\n  subgraph Core_OS_Layer [Native OS & Core JVM Layer]\n    Drivers[\"OpenGL | D3D | Win32 | GTK\"]\n    JVM[\"Java Virtual Machine & JDK API\"]\n  end\n  JFX_API --> SceneGraph\n  JFX_API --> WebView\n  JFX_API --> Media\n  SceneGraph --> Quantum\n  WebView --> Quantum\n  Media --> Quantum\n  Quantum --> Prism\n  Quantum --> Glass\n  Prism --> Drivers\n  Glass --> Drivers\n  Drivers --> JVM"
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Lifecycle of JavaFX Application",
+        "details": {
+          "concept": "The runtime operational lifecycle steps managed sequentially by the JVM whenever a JavaFX application is launched.",
+          "benefits": "Provides predictable hooks to initialize background resources and clean up assets during termination[cite: 6, 9].",
+          "types": "N/A",
+          "syntax": "public static void main(String[] args) {\n    launch(args); // Launches the execution lifecycle\n}",
+          "keywords": "lifecycle, launch, init, start, stop, Platform.exit",
+          "Important Thing": "Lifecycle Traversal Hooks",
+          "Important Thing Detail": {
+            "1": "Instance Creation: The runtime engine constructs an instance of the target Application class.",
+            "2": "init(): Executes an empty initialization hook method. It can be overridden, but constructing Stage or Scene objects here is strictly forbidden.",
+            "3": "start(): The primary graphical entry point method where all custom UI rendering code must be written.",
+            "4": "launch(): A static method invoked within the main method to start the application lifecycle.",
+            "5": "stop(): An empty hook method that can be overridden to house cleanup logic.",
+            "6": "Explicit Termination: The application can be manually terminated at any point using Platform.exit() or System.exit(status)."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "JavaFX Application Structure",
+        "details": {
+          "concept": "The primary component containment hierarchy required to structure and display a graphical interface screen.",
+          "benefits": "Enforces a clear, decoupled architecture separating the window container from physical scene contents and individual node elements.",
+          "types": "3 components",
+          "syntax": "stage.setScene(scene);\nstage.show();",
+          "keywords": "Application Structure, Stage, Scene, Scene Graph, Node, Root, Branch, Leaf",
+          "Important Thing": "Structural Hierarchy Definitions",
+          "Important Thing Detail": {
+            "1": "Stage: A virtual container representing the outer window frame, automatically created and passed to the start() method. Height and width are configurable parameters.",
+            "2": "Scene: Represents the physical container content area, added to exactly one stage instance at a time. Dimensions are passed to its constructor alongside the root node.",
+            "3": "Scene Graph: A hierarchical, tree-like data structure composed of nodes representing the visual components.",
+            "4": "Root Node: The foundational entry node of the scene graph; passing it to the Scene constructor is mandatory. Can be a Group, Region, or WebView.",
+            "5": "Branch / Parent Node: Classes inheriting from Parent (like Group or Region layout panes) that house lists of nested child nodes.",
+            "6": "Leaf Node: Terminal nodes without children, representing raw widgets or shapes (e.g., Rectangle, Button, ImageView)."
+          },
+          "diagram": "graph TD\n  subgraph Stage_Container [Stage Window]\n    subgraph Scene_Content [Scene Content Area]\n      subgraph Scene_Graph_Tree [Scene Graph Hierarchical Tree]\n        Root[\"Root Node<br>(Group, Region, or WebView)\"] --> Branch[\"Branch / Parent Node<br>(Layout Pane)\"]\n        Root --> Leaf1[\"Leaf Node<br>(Shape/Control)\"]\n        Branch --> Leaf2[\"Leaf Node<br>(Rectangle/Button)\"]\n        Branch --> Leaf3[\"Leaf Node<br>(ImageView/MediaView)\"]\n      end\n    end\n  end"
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Steps to build application",
+        "details": {
+          "concept": "The sequential coding blueprint required to construct, connect, and safely render a JavaFX program interface screen.",
+          "benefits": "Provides a standard implementation checklist for starting a GUI application[cite: 6, 9].",
+          "types": "3 foundational steps",
+          "syntax": "public void start(Stage primaryStage) {\n    Group root = new Group(); // Step 1\n    Scene scene = new Scene(root, 400, 300); // Step 2\n    primaryStage.setScene(scene); // Step 3\n    primaryStage.show();\n}",
+          "keywords": "build steps, instantiate root, configure scene, show stage",
+          "Important Thing": "Execution Breakdown",
+          "Important Thing Detail": {
+            "1": "Step 1: Build the Scene Graph by initializing a designated base Root Node (such as Group or layout Pane) and appending sub-nodes.",
+            "2": "Step 2: Construct the physical Scene container with defined pixel dimensions, binding the scene graph root inside its constructor.",
+            "3": "Step 3: Target the provided Stage container window, call setScene() to link the prepared scene, customize options like setTitle(), and trigger show() to render it."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Layout Panes (HBOX, VBOX)",
+        "details": {
+          "concept": "Layout container panes belonging to the javafx.scene.layout package, used to automatically organize child nodes into structured alignments on-screen.",
+          "benefits": "Automates node positioning within containers without requiring manual pixel coordinates.",
+          "types": "N/A",
+          "syntax": "HBox hb = new HBox();\nhb.setSpacing(10);\nVBox vb = new VBox();\nvb.setAlignment(Pos.CENTER);",
+          "keywords": "Layout Panes, HBox, VBox, alignment, spacing, padding, fillHeight",
+          "Important Thing": "HBox & VBox Characteristics",
+          "Important Thing Detail": {
+            "1": "HBox Layout: Automatically arranges all nested child nodes in a single horizontal row.",
+            "2": "VBox Layout: Automatically arranges all nested child nodes in a single vertical column.",
+            "3": "Alignment: Controls internal positioning (e.g., Pos.TOP_CENTER) using setter methods.",
+            "4": "Spacing & Padding: Spacing sets numeric gaps between individual child nodes; Padding sets whitespace margins between the container border and the nodes.",
+            "5": "fillHeight / fillWidth: Boolean attributes that determine whether resizable child elements stretch to fill container dimensions."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "TextFlow",
+        "details": {
+          "concept": "A layout pane designed to display multiple independent text nodes within a single wrapping flow configuration.",
+          "benefits": "Allows rich, multi-styled paragraphs to wrap naturally based on container boundaries.",
+          "types": "N/A",
+          "syntax": "TextFlow tf = new TextFlow(new Text(\"Hello \"), new Text(\"World\"));\ntf.setLineSpacing(5.0);\ntf.setTextAlignment(TextAlignment.CENTER);",
+          "keywords": "TextFlow, lineSpacing, textAlignment, wrapping text",
+          "Important Thing": "TextFlow Properties",
+          "Important Thing Detail": {
+            "1": "lineSpacing: A double type property used to define the vertical spacing between wrapping text blocks.",
+            "2": "textAlignment: Controls paragraph layout alignment; accepts CENTER, JUSTIFY, LEFT, or RIGHT constants."
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "StackPane",
+        "details": {
+          "concept": "A layout manager that stacks its child nodes directly on top of one another in a layered sequence.",
+          "benefits": "Ideal for overlaying text onto background shapes or graphics.",
+          "types": "N/A",
+          "syntax": "StackPane sp = new StackPane();\nsp.getChildren().addAll(new Rectangle(100, 50), new Label(\"Click\"));",
+          "keywords": "StackPane, layered layout, node stacking, overlay alignment",
+          "Important Thing": "Layer Sequencing",
+          "Important Thing Detail": {
+            "1": "The node appended first is placed at the absolute bottom of the layout stack; subsequent nodes are layered directly on top of it.",
+            "2": "Features a single 'alignment' property to control node layout tracking, alongside the static setMargin() method."
+          }
+        }
+      },
+      {
+        "topicId": "t10",
+        "title": "GridPane",
+        "details": {
+          "concept": "A layout manager that arranges child nodes into an indexed grid structure composed of rows and columns.",
+          "benefits": "Perfect for assembling uniform data entry forms with aligned input fields and labels.",
+          "types": "N/A",
+          "syntax": "GridPane grid = new GridPane();\ngrid.add(new Label(\"User:\"), 0, 0);\ngrid.add(new TextField(), 1, 0);",
+          "keywords": "GridPane, rows, columns, hgap, vgap, gridLinesVisible",
+          "Important Thing": "Grid Properties",
+          "Important Thing Detail": {
+            "1": "hgap & vgap: Double parameters representing horizontal cell spacing between columns and vertical spacing between rows.",
+            "2": "gridLinesVisible: A boolean flag; when set to true, it renders grid boundary lines visible for layout debugging.",
+            "3": "alignment: Dictates the layout alignment of the grid container within its allocation space."
+          }
+        }
+      },
+      {
+        "topicId": "t11",
+        "title": "FlowPane",
+        "details": {
+          "concept": "A layout pane that arranges elements in a continuous flow, wrapping them automatically at its boundaries.",
+          "benefits": "Prevents elements from clipping by wrapping items down to the next row or column dynamically.",
+          "types": "N/A",
+          "syntax": "FlowPane fp = new FlowPane(Orientation.HORIZONTAL, 5.0, 5.0);",
+          "keywords": "FlowPane, wrapping flow, orientation, hgap, vgap, columnHalignment",
+          "Important Thing": "Flow Behaviors",
+          "Important Thing Detail": {
+            "1": "A horizontal orientation wraps child nodes based on the pane's width; a vertical orientation wraps nodes based on height.",
+            "2": "Provides horizontal/vertical spacing gaps via hgap/vgap, along with alignment properties like columnHalignment and rowValignment."
+          }
+        }
+      },
+      {
+        "topicId": "t12",
+        "title": "TilePane",
+        "details": {
+          "concept": "A layout manager that arranges child nodes within a grid of uniformly sized cell regions called tiles.",
+          "benefits": "Maintains uniform cell sizes regardless of varying individual node dimensions.",
+          "types": "N/A",
+          "syntax": "TilePane tp = new TilePane();\ntp.setPrefColumns(4);",
+          "keywords": "TilePane, uniform tiles, prefColumns, prefRows, tileHeight, tileWidth",
+          "Important Thing": "Sizing Properties",
+          "Important Thing Detail": {
+            "1": "Configures cell dimensions via prefTileHeight/prefTileWidth and monitors actual dimensions via tileHeight/tileWidth.",
+            "2": "Manages grid shape structure using prefColumns (for horizontal layouts) or prefRows (for vertical tile layouts).",
+            "3": "Features horizontal and vertical cell spacing options via hgap/vgap, along with a tileAlignment property."
+          }
+        }
+      },
+      {
+        "topicId": "t13",
+        "title": "AnchorPane",
+        "details": {
+          "concept": "A layout pane that anchors child nodes at fixed pixel offsets relative to its edges.",
+          "benefits": "Maintains node positioning during container resize operations.",
+          "types": "N/A",
+          "syntax": "AnchorPane.setTopAnchor(childNode, 10.0);\nAnchorPane.setLeftAnchor(childNode, 15.0);",
+          "keywords": "AnchorPane, edge anchoring, offsets, layout boundaries",
+          "Important Thing": "Anchor Methods",
+          "Important Thing Detail": {
+            "1": "Node spacing is managed using four static edge layout methods: setTopAnchor(), setBottomAnchor(), setLeftAnchor(), and setRightAnchor().",
+            "2": "Each method accepts a target node instance alongside a double offset value representing the distance from that border edge."
+          }
+        }
+      },
+      {
+        "topicId": "t14",
+        "title": "BorderPane",
+        "details": {
+          "concept": "A layout manager that partitions its space into five distinct sub-regions: Top, Bottom, Left, Right, and Center.",
+          "benefits": "Provides an ideal structure for standard application windows (e.g., top menu, bottom status bar, center content)[cite: 2, 9].",
+          "types": "5 region locations",
+          "syntax": "BorderPane bp = new BorderPane();\nbp.setTop(new MenuBar());\nbp.setCenter(new TextArea());",
+          "keywords": "BorderPane, layout regions, region positioning, top, center, bottom",
+          "Important Thing": "Region Properties",
+          "Important Thing Detail": {
+            "1": "Top / Bottom: Node slots reserved for top header rows or bottom footer strips.",
+            "2": "Left / Right: Side panel slots optimized for vertical navigation lists or utility panels.",
+            "3": "Center: The primary, dynamic central viewport region that scales to fill any remaining container space."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "unitId": 8.2,
+    "unitTitle": "UNIT 8 - PART 2: UI COMPONENTS, PROPERTIES, AND EVENT HANDLING",
+    "topics": [
+      {
+        "topicId": "t1",
+        "title": "UI Components",
+        "details": {
+          "concept": "The core interactive graphical widgets displayed inside a user interface container.",
+          "benefits": "Provides standard, pre-built interactive controls to handle user data input and system selections.",
+          "types": "N/A",
+          "syntax": "Button btn = new Button(\"Register\");\nTextField tf = new TextField();",
+          "keywords": "UI Controls, elements, Label, Button, CheckBox, RadioButton, TextField, DatePicker",
+          "Important Thing": "Three Pillars of UI Design",
+          "Important Thing Detail": {
+            "1": "UI Elements: Core visual components that users view and interact with (e.g., Label, ColorPicker, ListView, Scrollbar).",
+            "2": "Layouts: Structures that organize UI elements cleanly across screen regions.",
+            "3": "Behavior: Event handling routines executed when users interact with specific UI elements."
+          }
+        }
+      },
+      {
+        "topicId": "t2",
+        "title": "Property Binding",
+        "details": {
+          "concept": "A synchronization API that binds the value of one property to another, automatically updating the target when the source changes.",
+          "benefits": "Eliminates manual synchronization loops between backend variables and front-end interface inputs.",
+          "types": "2 binding styles",
+          "syntax": "second.bind(first); // Simple unidirectional\nsecond.bindBidirectional(first); // Bi-directional",
+          "keywords": "property binding, data updates, unidirectional, bi-directional, primitive binding",
+          "Important Thing": "Binding Mechanics",
+          "Important Thing Detail": {
+            "1": "Unidirectional Binding: Updates flow one way; changing the source property automatically mirrors values down to the bound target.",
+            "2": "Bi-directional Binding: Syncs properties both ways; updating either property automatically modifies the corresponding counterpart.",
+            "3": "Primitive Binding: Supports inline math modifications on properties using fluent expressions like first.add(100) or first.subtract(50)."
+          }
+        }
+      },
+      {
+        "topicId": "t3",
+        "title": "The Color and Font Class",
+        "details": {
+          "concept": "Dedicated style classes used to apply color palettes and typographic styling to UI text, shapes, and backgrounds.",
+          "benefits": "Provides full aesthetic control over application themes and layout readability.",
+          "types": "N/A",
+          "syntax": "text.setFill(Color.BEIGE);\ncircle.setStroke(Color.DARKSLATEBLUE);",
+          "keywords": "Color class, Font class, setFill, setStroke, text styling, background color",
+          "Important Thing": "Color Application Methods",
+          "Important Thing Detail": {
+            "1": "setFill() & setStroke(): Core formatting commands applied to nodes; setFill handles shape interior fills, while setStroke applies color to vector borders.",
+            "2": "Color Definition Standards: Supports named color constants, raw RGB coordinates via Color.rgb(), HSB color standards via Color.hsb(), or web CSS hex hash codes using Color.web()."
+          }
+        }
+      },
+      {
+        "topicId": "t4",
+        "title": "Steps for Image Pattern",
+        "details": {
+          "concept": "An alternative styling fill pattern that maps an external graphic file onto shape geometries as an explicit background texture.",
+          "benefits": "Enables complex graphical custom textures on vector nodes.",
+          "types": "3 execution steps",
+          "syntax": "Image img = new Image(\"file:flower.jpg\");\nImagePattern pattern = new ImagePattern(img);\ncircle.setFill(pattern);",
+          "keywords": "ImagePattern, texture fill, vector skinning, graphical background",
+          "Important Thing": "Implementation Pipeline",
+          "Important Thing Detail": {
+            "1": "Step 1: Load the target image asset by instantiating a regular Image reference variable pointing to the source file.",
+            "2": "Step 2: Initialize an ImagePattern instance, passing the loaded image object into its constructor.",
+            "3": "Step 3: Call the shape's setFill() method, passing the prepared ImagePattern to skin the shape."
+          }
+        }
+      },
+      {
+        "topicId": "t5",
+        "title": "Font Class with Example",
+        "details": {
+          "concept": "The styling class used to configure text typography attributes, including type family, size, weights, and postures.",
+          "benefits": "Provides clean text rendering control across UI labels and data elements.",
+          "types": "3 layout options",
+          "syntax": "Font f = Font.font(\"Verdana\", FontWeight.BOLD, FontPosture.ITALIC, 20);\nlabel.setFont(f);",
+          "keywords": "Font class, font family, font size, FontWeight, FontPosture",
+          "Important Thing": "Typography Configuration Options",
+          "Important Thing Detail": {
+            "1": "Default Sizing: Initialize simple font size configurations by passing a double value (e.g., new Font(20)).",
+            "2": "Family & Sizing: Explicitly pass a family name string alongside sizing bounds (e.g., new Font('Arial', 18)).",
+            "3": "Advanced Typography: Combine Font.font() parameters to mix font family strings, FontWeight metrics, and FontPosture attributes."
+          }
+        }
+      },
+      {
+        "topicId": "t6",
+        "title": "Events and Events sources",
+        "details": {
+          "concept": "An event represents an interaction signal generated whenever a user or the operating system alters UI node states.",
+          "benefits": "Forms the foundation of interactive applications by capturing physical actions and translating them into code routines.",
+          "types": "2 core event modes",
+          "syntax": "// User clicks button -> Event trips -> Source records location",
+          "keywords": "event generation, event source, foreground events, background events",
+          "Important Thing": "Event Classifications",
+          "Important Thing Detail": {
+            "1": "Foreground Events: Require direct end-user interaction (e.g., clicking a button, dragging the mouse, typing a key, selecting an item).",
+            "2": "Background Events: Do not require user input; generated by system alerts, resource events, hardware changes, or timers."
+          }
+        }
+      },
+      {
+        "topicId": "t7",
+        "title": "Events in JavaFX",
+        "details": {
+          "concept": "The base javafx.event.Event class underpins an array of specialized event sub-classes tailored to specific user interaction patterns.",
+          "benefits": "Provides specific state properties (like mouse coordinates or key characters) based on the event context.",
+          "types": "4 primary event subclasses",
+          "syntax": "circle.setOnMouseClicked(e -> { // Handles a MouseEvent });",
+          "keywords": "Event types, MouseEvent, KeyEvent, DragEvent, WindowEvent",
+          "Important Thing": "Event Classes",
+          "Important Thing Detail": {
+            "1": "MouseEvent: Tracks pointer actions over a node; captures clicks, presses, releases, moves, entries, or exits.",
+            "2": "KeyEvent: Indicates keyboard interactions on an active node; tracks key presses, releases, and text inputs.",
+            "3": "DragEvent: Triggers during mouse drag operations; tracks items moving over or dropped onto target nodes.",
+            "4": "WindowEvent: Tracks parent layout visibility events; captures window showing, shown, hiding, and hidden states."
+          }
+        }
+      },
+      {
+        "topicId": "t8",
+        "title": "Event Handling",
+        "details": {
+          "concept": "The structural system that intercepts generated events to determine how the application responds.",
+          "benefits": "Decouples visual control elements from the logic that runs in response to user actions.",
+          "types": "N/A",
+          "syntax": "// Play Button click -> Target: Button, Source: Mouse, Type: Click",
+          "keywords": "event handler, event target, event source, event type",
+          "Important Thing": "Event Properties",
+          "Important Thing Detail": {
+            "1": "Target: The specific visual node element (window, scene, or node) where the interaction occurred.",
+            "2": "Source: The specific device or entity that generated the event (e.g., the mouse pointer).",
+            "3": "Type: The specific interaction variation (e.g., mouse pressed versus mouse released)."
+          }
+        }
+      },
+      {
+        "topicId": "t9",
+        "title": "Phase of Event handling",
+        "details": {
+          "concept": "The sequential propagation path traveled by an event through the scene graph hierarchy upon generation.",
+          "benefits": "Allows parent layout levels to preview, intercept, or modify interaction events before child nodes receive them.",
+          "types": "3 execution phases",
+          "syntax": "// Phase 1: Route Built -> Phase 2: Trait Down (Filter) -> Phase 3: Trait Up (Handler)",
+          "keywords": "event phases, route construction, event dispatch chain, capturing phase, bubbling phase",
+          "Important Thing": "The Propagation Phases",
+          "Important Thing Detail": {
+            "1": "Route Construction: Constructs the initial event path (Event Dispatch Chain) starting from the base Stage down to the source target node.",
+            "2": "Event Capturing Phase: The event travels down the dispatch chain from top to bottom. Any registered Event Filters execute during this downward pass.",
+            "3": "Event Bubbling Phase: The event reverses direction and travels from the target node back up to the stage root. Registered Event Handlers execute during this upward pass."
+          }
+        }
+      },
+      {
+        "topicId": "t10",
+        "title": "Event handlers and Filters",
+        "details": {
+          "concept": "The software components that implement the javafx.event.EventHandler interface to execute application logic for intercepted events.",
+          "benefits": "Enables fine-grained event management by separating downward capture filters from upward bubbling handlers.",
+          "types": "2 processing mechanisms",
+          "syntax": "circle.addEventFilter(MouseEvent.MOUSE_CLICKED, filter);\ncircle.addEventHandler(MouseEvent.MOUSE_CLICKED, handler);",
+          "keywords": "EventHandler interface, Event Filters, Event Handlers, filter vs handler",
+          "Important Thing": "Execution Differences",
+          "Important Thing Detail": {
+            "1": "Event Filters: Execute early during the downward Capturing Phase, allowing parent nodes to intercept events before children access them.",
+            "2": "Event Handlers: Execute later during the upward Bubbling Phase as events return up the hierarchy.",
+            "3": "Both processing components implement the same core EventHandler interface and override its handle() method."
+          }
+        }
+      },
+      {
+        "topicId": "t11",
+        "title": "Ways to handle event",
+        "details": {
+          "concept": "The three programming patterns used to hook event-handling routines into JavaFX interactive controls.",
+          "benefits": "Provides implementation choices, ranging from concise inline blocks to reusable external classes.",
+          "types": "3 code design patterns",
+          "syntax": "// 1. Lambda: btn.setOnAction(e -> { });\n// 2. Anonymous: btn.setOnAction(new EventHandler<ActionEvent>() { });\n// 3. Separate: btn.setOnAction(new MyHandler());",
+          "keywords": "Lambda expressions, Anonymous class, Separate class, event registration",
+          "Important Thing": "Pattern Trade-offs",
+          "Important Thing Detail": {
+            "1": "Lambda Expressions: The most common approach; delivers highly concise, readable syntax for short, one-off event responses.",
+            "2": "Anonymous Classes: Uses the standard EventHandler interface explicitly inline; common in legacy code or for complex configurations.",
+            "3": "Separate Standalone Classes: Implements the EventHandler interface in a distinct class definition; ideal for reusing the same response logic across multiple controls."
+          }
         }
       }
     ]

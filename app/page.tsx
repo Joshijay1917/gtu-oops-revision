@@ -7,10 +7,11 @@ import oopData from "../data/OOP.json";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [activeUnit, setActiveUnit] = useState(1);
-  const [activeTopicId, setActiveTopicId] = useState("t1");
+  const [activeUnit, setActiveUnit] = useState(oopData[0]?.unitId || 1);
+  const [activeTopicId, setActiveTopicId] = useState(oopData[0]?.topics[0]?.topicId || "t1");
 
   const currentUnitData = oopData.find((u) => u.unitId === activeUnit);
+  const unitIds = oopData.map((u) => u.unitId);
 
   return (
     <div className={styles.container}>
@@ -29,12 +30,20 @@ export default function Home() {
         <Timeline 
           activeUnit={activeUnit} 
           setActiveUnit={setActiveUnit} 
-          unitsCount={8} 
+          units={unitIds} 
         />
 
         <div className={styles.contentSection}>
+          <p className={styles.hintText}>
+            <svg className={styles.hintIcon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+            </svg>
+            First try to remember subtopics for every unit. than remember only concept of it.
+          </p>
           <ContentPanel 
-            unitData={currentUnitData} 
+            unitData={currentUnitData as any} 
             activeTopicId={activeTopicId} 
             setActiveTopicId={setActiveTopicId} 
           />

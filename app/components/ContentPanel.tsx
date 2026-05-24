@@ -1,14 +1,18 @@
 "use client";
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import MermaidDiagram from './MermaidDiagram';
 import styles from './ContentPanel.module.css';
 
 interface TopicDetail {
-  concept: string;
-  benefits: string;
-  types: string;
-  syntax: string;
-  keywords: string;
+  concept?: string;
+  benefits?: string;
+  types?: string | Record<string, string>;
+  syntax?: string;
+  keywords?: string;
+  "Important Thing"?: string;
+  "Important Thing Detail"?: Record<string, string | { c: string; i: string }>;
+  [key: string]: any;
 }
 
 interface Topic {
@@ -50,6 +54,92 @@ export default function ContentPanel({ unitData, activeTopicId, setActiveTopicId
 
   const activeTopic = unitData.topics.find(t => t.topicId === activeTopicId) || unitData.topics[0];
 
+  const renderDetailField = (label: string, value: any, isCode = false) => {
+    if (!value || value === "N/A" || value === "") return null;
+
+    let content;
+    
+    // Special format for "vs" titles to render a comparison table
+    if (label.toLowerCase().includes("vs") && typeof value === 'object' && value !== null) {
+      const headers = label.split(/vs/i).map(s => s.trim());
+      const leftHeader = headers[0] || "Item 1";
+      const rightHeader = headers[1] || "Item 2";
+      
+      content = (
+        <div className={styles.tableContainer}>
+          <table className={styles.vsTable}>
+            <thead>
+              <tr>
+                <th>{leftHeader}</th>
+                <th>{rightHeader}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(value).map(([k, v]) => {
+                if (typeof v === 'object' && v !== null) {
+                  const leftValue = (v as any).c;
+                  const rightValue = (v as any).i;
+                  return (
+                    <tr key={k}>
+                      <td>{leftValue}</td>
+                      <td>{rightValue}</td>
+                    </tr>
+                  );
+                }
+                return null;
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
+    } else if (typeof value === 'string') {
+      content = isCode ? <code className={styles.codeBlock}>{value}</code> : <span>{value}</span>;
+    } else if (typeof value === 'object' && value !== null) {
+      content = (
+        <ul className={styles.nestedList}>
+          {Object.entries(value).map(([k, v]) => {
+            if (typeof v === 'object' && v !== null) {
+              if ('c' in v && 'i' in v) {
+                const c = (v as any).c;
+                const i = (v as any).i;
+                return (
+                  <li key={k}>
+                    {isNaN(Number(k)) ? <strong>{k}:</strong> : <strong>{k}.</strong>} {c} <span className={styles.dim}>|</span> {i}
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={k} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                    <span>{isNaN(Number(k)) ? <strong>{k}:</strong> : <strong>{k}.</strong>}</span>
+                    <ul className={styles.nestedList} style={{ marginTop: '0.25rem', borderLeft: 'none', paddingLeft: '0.5rem' }}>
+                      {Object.entries(v).map(([subK, subV]) => (
+                        <li key={subK}><strong>{subK}:</strong> {subV as string}</li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              }
+            }
+            return (
+              <li key={k}>
+                {isNaN(Number(k)) ? <strong>{k}:</strong> : <strong>{k}.</strong>} {v as string}
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
+
+    return (
+      <li>
+        <span className={styles.bullet}>*</span> 
+        <div className={styles.detailItemContent}>
+          <strong>{label}:</strong> {content}
+        </div>
+      </li>
+    );
+  };
+
   return (
     <div className={styles.panelWrapper}>
       <div className={styles.panelContainer}>
@@ -86,27 +176,26 @@ export default function ContentPanel({ unitData, activeTopicId, setActiveTopicId
               <div className={styles.divider}></div>
               
               <div className={styles.detailContent}>
-                <p className={styles.conceptText}>
-                  <span className={styles.label}>Concept:</span> {activeTopic.details.concept}
-                </p>
+                {activeTopic.details.concept && activeTopic.details.concept !== "N/A" && (
+                  <p className={styles.conceptText}>
+                    <span className={styles.label}>Concept:</span> {activeTopic.details.concept}
+                  </p>
+                )}
+                
                 <ul className={styles.detailList}>
-                  <li>
-                    <span className={styles.bullet}>*</span> 
-                    <div><strong>Benefits:</strong> {activeTopic.details.benefits}</div>
-                  </li>
-                  <li>
-                    <span className={styles.bullet}>*</span> 
-                    <div><strong>Types:</strong> {activeTopic.details.types}</div>
-                  </li>
-                  <li>
-                    <span className={styles.bullet}>*</span> 
-                    <div><strong>Syntax:</strong> <code className={styles.codeBlock}>{activeTopic.details.syntax}</code></div>
-                  </li>
-                  <li>
-                    <span className={styles.bullet}>*</span> 
-                    <div><strong>Key Keywords:</strong> <code className={styles.codeBlock}>{activeTopic.details.keywords}</code></div>
-                  </li>
+                  {renderDetailField("Benefits", activeTopic.details.benefits)}
+                  {renderDetailField("Types", activeTopic.details.types)}
+                  {renderDetailField("Syntax", activeTopic.details.syntax, true)}
+                  {renderDetailField("Key Keywords - Use this terms to get marks", activeTopic.details.keywords, true)}
+                  {activeTopic.details["Important Thing"] && activeTopic.details["Important Thing"] !== "N/A" && renderDetailField(
+                    activeTopic.details["Important Thing"], 
+                    activeTopic.details["Important Thing Detail"] || activeTopic.details["Important Thing"]
+                  )}
                 </ul>
+
+                {activeTopic.details.diagram && (
+                  <MermaidDiagram chart={activeTopic.details.diagram} />
+                )}
               </div>
             </motion.div>
           </AnimatePresence>

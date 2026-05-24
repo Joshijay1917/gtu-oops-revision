@@ -22,10 +22,11 @@ export default function Navbar({ onSelectTopic }: NavbarProps) {
 
   const filteredTopics = searchQuery.trim() === "" 
     ? [] 
-    : allTopics.filter(t => 
-        t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        t.details.concept.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+    : allTopics.filter(t => {
+        const titleMatch = t.title?.toLowerCase().includes(searchQuery.toLowerCase());
+        const conceptMatch = t.details?.concept?.toLowerCase().includes(searchQuery.toLowerCase());
+        return titleMatch || conceptMatch;
+      });
 
   return (
     <nav className={styles.navbar}>

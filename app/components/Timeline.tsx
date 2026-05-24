@@ -5,18 +5,17 @@ import styles from './Timeline.module.css';
 interface TimelineProps {
   activeUnit: number;
   setActiveUnit: (unit: number) => void;
-  unitsCount?: number;
+  units: number[];
 }
 
-export default function Timeline({ activeUnit, setActiveUnit, unitsCount = 8 }: TimelineProps) {
-  const nodes = Array.from({ length: unitsCount }, (_, i) => i + 1);
+export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineProps) {
 
   return (
     <div className={styles.timelineContainer}>
       <div className={styles.nodesWrapper}>
-        {nodes.map((node, index) => {
+        {units.map((node, index) => {
           const isActive = activeUnit === node;
-          const isLast = index === nodes.length - 1;
+          const isLast = index === units.length - 1;
           
           // Alternating wave path for the connector
           const wavePath = index % 2 === 0 
@@ -38,7 +37,12 @@ export default function Timeline({ activeUnit, setActiveUnit, unitsCount = 8 }: 
                       strokeWidth="2"
                     />
                   </svg>
-                  <span className={`${styles.nodeText} ${isActive ? styles.textActive : ''}`}>{node}</span>
+                  <span 
+                    className={`${styles.nodeText} ${isActive ? styles.textActive : ''}`}
+                    style={{ fontSize: String(node).length > 2 ? '0.95rem' : '1.25rem' }}
+                  >
+                    {node}
+                  </span>
                 </div>
                 {isActive && (
                   <motion.div 
