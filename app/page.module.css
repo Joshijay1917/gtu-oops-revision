@@ -44,6 +44,12 @@
   .main {
     padding: 0 1rem;
   }
+  .hintText {
+    font-size: 0.95rem;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0.5rem;
+  }
 }
 
 .hintText {
@@ -58,8 +64,11 @@
   gap: 0.5rem;
   opacity: 0.9;
   letter-spacing: 0.02em;
+  line-height: 1.4;
 }
 
 .hintIcon {
   color: var(--glow-blue-intense, #3b82f6);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
 }
