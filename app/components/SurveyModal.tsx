@@ -43,7 +43,7 @@ export default function SurveyModal({ onClose, onComplete }: SurveyModalProps) {
   };
 
   const submitSurvey = async () => {
-    if (!responses.email.match(/^[a-zA-Z0-9.]+@vvpedulink\.ac\.in$/)) {
+    if (!responses.email.match(/^2[1-4][a-z]{2}[0-9]{3}\.[a-zA-Z0-9]+\.[a-zA-Z0-9]+@vvpedulink\.ac\.in$/)) {
       setError("Email must be in format: rollno.name.surename@vvpedulink.ac.in");
       return;
     }

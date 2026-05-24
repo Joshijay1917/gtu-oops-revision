@@ -43,11 +43,11 @@
       "details": {
         "concept": "GTU typically loops a set of standard, logical coding questions in Section 1(c) or 2(c). Expect these exact programs to show up (7 Marks):",
         "Important Programs": {
-          "1": "Command-Line Arguments Program: Write a program to fetch 10 numbers from the command line and determine the maximum or minimum value. [link:0.1,p1]",
-          "2": "Array Manipulation: Write a program to sort array elements in ascending order. [link:0.1,t2]",
-          "3": "Mathematical Patterns: Programs to print the Fibonacci series up to n terms or find the sum of the individual digits of an entered number. [link:0.1,t3]",
-          "4": "Custom Exceptions: Write a complete program that explicitly creates, raises, and handles a user-defined exception. [link:0.1,t4]",
-          "5": "Text File I/O Handling: Write a program utilizing FileInputStream and FileOutputStream to dynamically read from and write text characters into a .txt file. [link:0.1,t5]"
+          "1": "Command-Line Arguments Program: Write a program to fetch 10 numbers from the command line and determine the maximum or minimum value. [link:CODE!!,p1]",
+          "2": "Array Manipulation: Write a program to sort array elements in ascending order. [link:CODE!!,t2]",
+          "3": "Mathematical Patterns: Programs to print the Fibonacci series up to n terms or find the sum of the individual digits of an entered number. [link:CODE!!,t3]",
+          "4": "Custom Exceptions: Write a complete program that explicitly creates, raises, and handles a user-defined exception. [link:CODE!!,t4]",
+          "5": "Text File I/O Handling: Write a program utilizing FileInputStream and FileOutputStream to dynamically read from and write text characters into a .txt file. [link:CODE!!,t5]"
         }
       }
     },
