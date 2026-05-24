@@ -23,10 +23,10 @@
 
 .accordionItem {
   background: var(--panel-bg);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accordion-border);
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--accordion-shadow);
   backdrop-filter: blur(10px);
 }
 
@@ -34,7 +34,7 @@
   width: 100%;
   text-align: left;
   padding: 1.5rem;
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--accordion-header-bg);
   border: none;
   color: var(--foreground);
   font-size: 1.15rem;
@@ -47,12 +47,12 @@
 }
 
 .accordionHeader:hover {
-  background: rgba(30, 58, 138, 0.3);
+  background: var(--accordion-header-hover);
 }
 
 .accordionHeaderActive {
-  background: rgba(30, 58, 138, 0.5);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  background: var(--accordion-header-active);
+  border-bottom: 1px solid var(--panel-border);
 }
 
 .accordionIcon {
@@ -81,7 +81,7 @@
 .detailHeader {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #94a3b8;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -92,12 +92,12 @@
 
 .divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--divider-bg);
   margin-bottom: 1.5rem;
 }
 
 .detailContent {
-  color: #e2e8f0;
+  color: var(--foreground);
   line-height: 1.6;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .label {
-  color: #94a3b8;
+  color: var(--text-muted);
   margin-right: 0.25rem;
 }
 
@@ -151,12 +151,12 @@
 }
 
 .bullet {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .detailList strong {
-  color: #cbd5e1;
-  font-weight: 500;
+  color: var(--foreground);
+  font-weight: 600;
   margin-right: 0.2rem;
 }
 
@@ -166,12 +166,12 @@
 }
 
 .codeBlock {
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--code-bg);
   padding: 0.5rem 0.75rem;
   border-radius: 0.25rem;
   font-family: monospace;
   font-size: 0.9em;
-  color: #93c5fd;
+  color: var(--code-text);
   white-space: pre-wrap;
   display: block;
   margin-top: 0.25rem;
@@ -181,11 +181,11 @@
 .emptyPanel {
   text-align: center;
   padding: 4rem;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 1.1rem;
   background: var(--panel-bg);
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accordion-border);
 }
 
 .tableContainer {
@@ -193,7 +193,7 @@
   width: 100%;
   overflow-x: auto;
   border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--divider-bg);
 }
 
 .vsTable {
@@ -207,22 +207,22 @@
   color: var(--foreground);
   font-weight: 600;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--divider-bg);
 }
 
 .vsTable th:first-child {
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid var(--divider-bg);
 }
 
 .vsTable td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--accordion-border);
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: var(--foreground);
 }
 
 .vsTable td:first-child {
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid var(--accordion-border);
 }
 
 .vsTable tr:last-child td {
@@ -230,7 +230,7 @@
 }
 
 .vsTable tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--input-bg);
 }
 
 @media (max-width: 768px) {
@@ -282,5 +282,8 @@
   height: auto;
   border-radius: 0.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accordion-border);
+  background: var(--diagram-bg);
+  filter: var(--diagram-filter);
+  padding: 0.5rem;
 }

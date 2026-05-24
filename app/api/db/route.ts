@@ -1,21 +1,6 @@
 import { NextResponse } from "next/server";
-import mongoose from "mongoose";
 import connectToDatabase from "../../../lib/mongodb";
-
-const SurveySchema = new mongoose.Schema(
-  {
-    needCOAWebsite: { type: Boolean, default: null },
-    needMobileApp: { type: Boolean, default: null },
-    device: { type: String, default: null },
-    helpProvideMaterial: { type: Boolean, default: null },
-    branch: { type: String, default: null },
-    provideBranchMaterial: { type: Boolean, default: null },
-    email: { type: String, default: null },
-  },
-  { timestamps: true }
-);
-
-const Survey = mongoose.models.Survey || mongoose.model("Survey", SurveySchema);
+import { Survey } from "../../../lib/models/Survey";
 
 export async function POST(req: Request) {
   try {

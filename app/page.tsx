@@ -6,10 +6,11 @@ import ContentPanel from "./components/ContentPanel";
 import SurveyModal from "./components/SurveyModal";
 import oopData from "../data/OOP.json";
 import oopImpData from "../data/OOPIMP.json";
+import oopCodeData from "../data/OOPCODEQUE.json";
 import styles from "./page.module.css";
 
 // Combine the IMP data with the rest of the units
-const allData = [oopImpData, ...oopData];
+const allData = [oopImpData, oopCodeData, ...oopData];
 
 export default function Home() {
   const [activeUnit, setActiveUnit] = useState<number | string>(allData[0]?.unitId || "imp");
@@ -36,6 +37,8 @@ export default function Home() {
       />
       <main className={styles.main}>
         <div className={styles.header}>
+          <h1 className={styles.title}>OBJECT-ORIENTED PROGRAMMING (BE04000231)</h1>
+          <p className={styles.subtitle}>Revision Guide &bull; All Units</p>
           {!surveyAnswered && (
             <button 
               className={`${styles.surveyBtn} ${styles.pulse}`}
@@ -44,8 +47,6 @@ export default function Home() {
               Quick Question
             </button>
           )}
-          <h1 className={styles.title}>OBJECT-ORIENTED PROGRAMMING (BE04000231)</h1>
-          <p className={styles.subtitle}>Revision Guide &bull; All Units</p>
         </div>
 
         <Timeline 

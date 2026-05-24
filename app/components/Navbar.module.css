@@ -20,7 +20,27 @@
 
 .links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.themeToggle {
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: var(--foreground);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.themeToggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.8);
 }
 
 .searchContainer {
@@ -30,8 +50,8 @@
 .searchInputWrapper {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 20px;
   padding: 0.4rem 1rem;
   transition: all 0.2s ease;
@@ -119,15 +139,39 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   .logo {
     font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
+  .links {
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .searchContainer {
+    flex-grow: 1;
+  }
+  .searchInputWrapper {
+    width: 100%;
   }
   .searchInput {
-    width: 120px;
+    width: 100%;
   }
   .searchInput:focus {
-    width: 150px;
+    width: 100%;
+  }
+  .themeToggle {
+    padding: 0.4rem 0.6rem;
+  }
+  .themeText {
+    display: none;
+  }
+  .themeIcon {
+    font-size: 1.1rem;
   }
 }

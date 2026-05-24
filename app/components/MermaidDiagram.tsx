@@ -2,20 +2,35 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
 
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'dark',
-  securityLevel: 'loose',
-});
-
 export default function MermaidDiagram({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [error, setError] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState('dark');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isLight = document.documentElement.classList.contains('light');
+      setCurrentTheme(isLight ? 'default' : 'dark');
+
+      const handleThemeChange = () => {
+        setCurrentTheme(document.documentElement.classList.contains('light') ? 'default' : 'dark');
+      };
+      
+      window.addEventListener('themeChanged', handleThemeChange);
+      return () => window.removeEventListener('themeChanged', handleThemeChange);
+    }
+  }, []);
 
   useEffect(() => {
     if (ref.current) {
       ref.current.innerHTML = '';
       setError(false);
+      
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: currentTheme,
+        securityLevel: 'loose',
+      });
       
       const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
       
@@ -33,7 +48,7 @@ export default function MermaidDiagram({ chart }: { chart: string }) {
         setError(true);
       }
     }
-  }, [chart]);
+  }, [chart, currentTheme]);
 
   if (error) {
     return <div style={{ color: 'red', margin: '1rem 0' }}>Failed to render diagram</div>;
@@ -47,10 +62,9 @@ export default function MermaidDiagram({ chart }: { chart: string }) {
         margin: '1.5rem 0', 
         display: 'flex', 
         justifyContent: 'center',
-        background: 'rgba(0, 0, 0, 0.2)',
+        background: 'var(--diagram-bg)',
         padding: '1rem',
         borderRadius: '0.5rem',
-        border: '1px solid rgba(255, 255, 255, 0.05)'
       }} 
     />
   );

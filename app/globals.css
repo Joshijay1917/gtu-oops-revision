@@ -7,6 +7,63 @@
   --glow-blue-intense: #60a5fa;
   --panel-bg: rgba(30, 41, 59, 0.8);
   --panel-border: rgba(59, 130, 246, 0.4);
+  --grid-color: rgba(255, 255, 255, 0.03);
+  
+  --accordion-border: rgba(255, 255, 255, 0.05);
+  --accordion-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --accordion-header-bg: rgba(15, 23, 42, 0.9);
+  --accordion-header-hover: rgba(30, 58, 138, 0.3);
+  --accordion-header-active: rgba(30, 58, 138, 0.5);
+  
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --text-muted: #94a3b8;
+  --divider-bg: rgba(255, 255, 255, 0.1);
+  
+  --code-bg: rgba(0, 0, 0, 0.3);
+  --code-text: #93c5fd;
+  --diagram-filter: none;
+  --diagram-bg: transparent;
+
+  --hex-fill: rgba(30, 41, 59, 0.8);
+  --hex-stroke: rgba(100, 116, 139, 0.5);
+  --hex-active-fill: rgba(30, 58, 138, 0.4);
+  --hex-imp-fill: rgba(220, 38, 38, 0.4);
+  --hex-imp-stroke: rgba(239, 68, 68, 0.5);
+  --hex-shadow: none;
+}
+
+:root.light {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --glow-blue: #2563eb;
+  --glow-blue-intense: #1d4ed8;
+  --panel-bg: rgba(255, 255, 255, 0.9);
+  --panel-border: rgba(37, 99, 235, 0.3);
+  --grid-color: rgba(0, 0, 0, 0.05);
+
+  --accordion-border: rgba(0, 0, 0, 0.1);
+  --accordion-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --accordion-header-bg: rgba(241, 245, 249, 0.9);
+  --accordion-header-hover: rgba(226, 232, 240, 0.8);
+  --accordion-header-active: rgba(219, 234, 254, 0.6);
+
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --text-muted: #475569;
+  --divider-bg: rgba(0, 0, 0, 0.1);
+
+  --code-bg: #f1f5f9;
+  --code-text: #0284c7;
+  --diagram-filter: none;
+  --diagram-bg: transparent;
+
+  --hex-fill: #ffffff;
+  --hex-stroke: rgba(0, 0, 0, 0.1);
+  --hex-active-fill: #eff6ff;
+  --hex-imp-fill: #fef2f2;
+  --hex-imp-stroke: #f87171;
+  --hex-shadow: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
 }
 
 body {
@@ -14,8 +71,8 @@ body {
   color: var(--foreground);
   /* Grid background pattern to match the image */
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 50px 50px;
   font-family: var(--font-inter), sans-serif;
   margin: 0;

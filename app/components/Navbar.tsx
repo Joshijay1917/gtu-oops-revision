@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import oopData from '../../data/OOP.json';
 import oopImpData from '../../data/OOPIMP.json';
@@ -32,12 +32,38 @@ export default function Navbar({ onSelectTopic }: NavbarProps) {
         return titleMatch || conceptMatch;
       });
 
+  const toggleTheme = () => {
+    if (document.documentElement.classList.contains('light')) {
+      document.documentElement.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+    window.dispatchEvent(new Event('themeChanged'));
+  };
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    }
+  }, []);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <span className={styles.oop}>OOP</span> REVISE HUB
       </div>
       <div className={styles.links}>
+        <button 
+          onClick={toggleTheme}
+          className={styles.themeToggle}
+          title="Toggle Theme"
+        >
+          <span className={styles.themeIcon}>🌓</span>
+          <span className={styles.themeText}>Theme</span>
+        </button>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
             <svg className={styles.searchIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>

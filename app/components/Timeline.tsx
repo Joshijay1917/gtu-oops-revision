@@ -24,15 +24,15 @@ export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineP
           
           const isImp = String(node).toLowerCase() === "imp";
           
-          let fillColor = "rgba(30, 41, 59, 0.8)";
-          let strokeColor = "rgba(100, 116, 139, 0.5)";
+          let fillColor = "var(--hex-fill)";
+          let strokeColor = "var(--hex-stroke)";
           
           if (isActive) {
-            fillColor = isImp ? "rgba(220, 38, 38, 0.4)" : "rgba(30, 58, 138, 0.4)";
+            fillColor = isImp ? "var(--hex-imp-fill)" : "var(--hex-active-fill)";
             strokeColor = isImp ? "#ef4444" : "var(--glow-blue-intense)";
           } else if (isImp) {
             // Unselected state but with slight red hint
-            strokeColor = "rgba(239, 68, 68, 0.5)";
+            strokeColor = "var(--hex-imp-stroke)";
           }
 
           return (
@@ -73,7 +73,7 @@ export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineP
                      <path 
                        d={wavePath} 
                        fill="none" 
-                       stroke="rgba(100, 116, 139, 0.5)" 
+                       stroke="var(--hex-stroke)" 
                        strokeWidth="2" 
                      />
                    </svg>
