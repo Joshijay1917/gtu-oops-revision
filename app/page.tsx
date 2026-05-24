@@ -14,7 +14,7 @@ const allData = [oopImpData, oopCodeData, ...oopData];
 
 export default function Home() {
   const [activeUnit, setActiveUnit] = useState<number | string>(allData[0]?.unitId || "imp");
-  const [activeTopicId, setActiveTopicId] = useState<string>(allData[0]?.topics[0]?.topicId || "t1");
+  const [activeTopicId, setActiveTopicId] = useState<string>("");
   const [showSurvey, setShowSurvey] = useState(false);
   const [surveyAnswered, setSurveyAnswered] = useState(true); // default true to prevent flash
 
