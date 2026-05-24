@@ -41,7 +41,7 @@ export default function Home() {
               className={`${styles.surveyBtn} ${styles.pulse}`}
               onClick={() => setShowSurvey(true)}
             >
-              Quick Question - Please Answer!
+              Quick Question
             </button>
           )}
           <h1 className={styles.title}>OBJECT-ORIENTED PROGRAMMING (BE04000231)</h1>

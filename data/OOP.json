@@ -862,7 +862,7 @@
       },
       {
         "topicId": "t10",
-        "title": "Dynamic Dispatch Method",
+        "title": "Dynamic Dispatch Method or Runtime Polymorphism",
         "details": {
           "concept": "The underlying system that handles call requests to overridden methods right at runtime instead of compile time.",
           "benefits": "Enables clean runtime polymorphism by letting the exact execution path be determined by the object instance itself.",
@@ -1503,7 +1503,7 @@
         "topicId": "t7",
         "title": "Interface vs Abstract Class",
         "details": {
-          "concept": "The architectural distinctions between using an abstract class blueprint and using an interface behavioral specification.",
+          "concept": "An abstract class is blueprint and an interface is behavioral specifications. Interface automatically mandates all fields must be public static final.",
           "benefits": "Guides system designers to choose the optimal abstraction tool based on variable, constructor, and inheritance needs.",
           "types": "N/A",
           "syntax": "interface Run { }\nabstract class Walk { }",
