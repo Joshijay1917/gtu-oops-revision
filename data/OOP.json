@@ -869,7 +869,7 @@
           "types": "N/A",
           "syntax": "A a = new B(); // Upcasting\na.move(); // Triggers the child version at runtime",
           "keywords": "dynamic dispatch, upcasting, runtime resolution",
-          "Important Thing": "Upcasting vs Downcasting",
+          "Important Thing": "Upcasting and Downcasting",
           "Important Thing Detail": {
             "1": "Upcasting (assigning a child instance directly to a parent variable) is perfectly legal and happens automatically.",
             "2": "Assigning a parent reference directly to a child variable is illegal and breaks compilation immediately."
