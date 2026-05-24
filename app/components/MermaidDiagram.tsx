@@ -5,7 +5,7 @@ import mermaid from 'mermaid';
 export default function MermaidDiagram({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [error, setError] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('dark');
+  const [currentTheme, setCurrentTheme] = useState<any>('dark');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
