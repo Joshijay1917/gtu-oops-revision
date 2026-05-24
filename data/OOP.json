@@ -101,7 +101,8 @@
             "JDK": "It is provide development tools and JRE (Java Runtime Environment)",
             "JRE": "It is provide Librabries Set and JVM (Java Virtual Machine)"
           },
-          "diagram": "graph LR\n  A[Source Code .java] -->|Compiler| B[ByteCode .class]\n  B -->|JVM| C[Machine Code]\n  C --> D[Result]"
+          "diagram": "graph LR\n  A[Source Code .java] -->|Compiler| B[ByteCode .class]\n  B -->|JVM| C[Machine Code]\n  C --> D[Result]",
+          "image": "/images/Unit1-3.png"
         }
       },
       {
