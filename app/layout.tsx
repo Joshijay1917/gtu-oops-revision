@@ -46,7 +46,7 @@ export default function RootLayout({
           </div>
           
           <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <a href="https://wa.me/9106052826" target="_blank" rel="noopener noreferrer" style={{ color: "#4ade80", textDecoration: "none", fontWeight: 600, transition: "color 0.2s" }}>
+            <a href="https://wa.me/919106052826" target="_blank" rel="noopener noreferrer" style={{ color: "#4ade80", textDecoration: "none", fontWeight: 600, transition: "color 0.2s" }}>
               WhatsApp
             </a>
             <span style={{ opacity: 0.3 }}>|</span>
