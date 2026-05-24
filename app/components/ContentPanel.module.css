@@ -269,3 +269,18 @@
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   transform: translateY(-1px);
 }
+
+.imageContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.topicImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

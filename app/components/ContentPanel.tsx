@@ -209,12 +209,17 @@ export default function ContentPanel({ unitData, activeTopicId, setActiveTopicId
                               topic.details["Important Thing Detail"] || topic.details["Important Thing"]
                             )}
                             {Object.keys(topic.details)
-                              .filter(k => !["concept", "benefits", "types", "syntax", "keywords", "Important Thing", "Important Thing Detail", "diagram"].includes(k))
+                              .filter(k => !["concept", "benefits", "types", "syntax", "keywords", "Important Thing", "Important Thing Detail", "diagram", "image"].includes(k))
                               .map(k => renderDetailField(k, topic.details[k]))}
                           </ul>
 
                           {topic.details.diagram && (
                             <MermaidDiagram chart={topic.details.diagram} />
+                          )}
+                          {topic.details.image && (
+                            <div className={styles.imageContainer}>
+                              <img src={topic.details.image} alt={topic.title} className={styles.topicImage} />
+                            </div>
                           )}
                         </div>
                       </div>
