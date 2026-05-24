@@ -4,14 +4,18 @@ import Navbar from "./components/Navbar";
 import Timeline from "./components/Timeline";
 import ContentPanel from "./components/ContentPanel";
 import oopData from "../data/OOP.json";
+import oopImpData from "../data/OOPIMP.json";
 import styles from "./page.module.css";
 
-export default function Home() {
-  const [activeUnit, setActiveUnit] = useState(oopData[0]?.unitId || 1);
-  const [activeTopicId, setActiveTopicId] = useState(oopData[0]?.topics[0]?.topicId || "t1");
+// Combine the IMP data with the rest of the units
+const allData = [oopImpData, ...oopData];
 
-  const currentUnitData = oopData.find((u) => u.unitId === activeUnit);
-  const unitIds = oopData.map((u) => u.unitId);
+export default function Home() {
+  const [activeUnit, setActiveUnit] = useState<number | string>(allData[0]?.unitId || "imp");
+  const [activeTopicId, setActiveTopicId] = useState<string>(allData[0]?.topics[0]?.topicId || "t1");
+
+  const currentUnitData = allData.find((u) => String(u.unitId) === String(activeUnit));
+  const unitIds = allData.map((u) => u.unitId);
 
   return (
     <div className={styles.container}>
@@ -45,7 +49,11 @@ export default function Home() {
           <ContentPanel 
             unitData={currentUnitData as any} 
             activeTopicId={activeTopicId} 
-            setActiveTopicId={setActiveTopicId} 
+            setActiveTopicId={setActiveTopicId}
+            onNavigate={(u, t) => {
+              setActiveUnit(u);
+              setActiveTopicId(t);
+            }} 
           />
         </div>
       </main>

@@ -67,6 +67,10 @@
   color: var(--glow-blue-intense);
 }
 
+.textActiveRed {
+  color: #ef4444;
+}
+
 .glow {
   position: absolute;
   top: calc(50% - 40px);
@@ -74,6 +78,20 @@
   width: 80px;
   height: 80px;
   background: var(--glow-blue-intense);
+  filter: blur(25px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.glowRed {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  background: #ef4444;
   filter: blur(25px);
   opacity: 0.5;
   border-radius: 50%;

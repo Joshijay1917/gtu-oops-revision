@@ -1,0 +1,76 @@
+{
+  "unitId": "imp",
+  "unitTitle": "GTU EXAM: MOST IMPORTANT QUESTIONS",
+  "topics": [
+    {
+      "topicId": "t1",
+      "title": "Exam Overview",
+      "details": {
+        "concept": "Based on a detailed review of previous Gujarat Technological University (GTU) examination patterns and past paper question distributions for Object-Oriented Programming (OOP/OOPJ), the most frequently asked, high-weightage questions are structured below.",
+        "benefits": "In GTU papers, theories are typically allocated 3 or 4 marks, while complete coding implementations or heavy conceptual programs carry a full 7 marks."
+      }
+    },
+    {
+      "topicId": "t2",
+      "title": "Tier 1: Most Important Questions",
+      "details": {
+        "concept": "These questions are asked in almost every paper.",
+        "1. Java Foundations & Core Concepts": {
+          "1": "What is Bytecode? Explain the architecture and key components of the Java Virtual Machine (JVM) in detail. (7 Marks) [link:1,t3]",
+          "2": "List the prominent features of Java and explain any three. (3 or 4 Marks) [link:1,t2]",
+          "3": "Differentiate between Object-Oriented Programming (OOP) and Procedure-Oriented Programming (POP). (3 or 4 Marks) [link:1,t1]"
+        },
+        "2. Classes, Objects, and Polymorphism": {
+          "1": "What is a Constructor? Differentiate between Parameterized and Copy Constructors with individual code examples. (7 Marks) [link:3,t5]",
+          "2": "What is a static keyword? Explain its applications with variables, methods, and blocks along with a complete program. (7 Marks) [link:3,t10]",
+          "3": "Explain Method Overloading vs. Method Overriding with syntax and code snippets. (7 Marks) [link:4.1,t8]",
+          "4": "What is Run-Time Polymorphism? Explain Dynamic Method Dispatch with a clear, simple code example. (7 Marks) [link:4.1,t10]"
+        },
+        "3. Advanced OOP Structures & Exception Handling": {
+          "1": "Define an Interface. How does it structurally differ from an Abstract Class? Explain how multiple inheritance is achieved using interfaces. (7 Marks) [link:5.1,t7]",
+          "2": "Explain the Exception Handling Mechanism in Java. Differentiate between Checked and Unchecked Exceptions. (4 or 7 Marks) [link:5.2,t3]",
+          "3": "Explain the purpose and differences among the try, catch, finally, throw, and throws keywords. (4 or 7 Marks) [link:5.2,t2]"
+        },
+        "4. Concurrency & Utilities": {
+          "1": "Explain the life cycle of a Thread with a neat transition state diagram. (7 Marks) [link:6,t2]",
+          "2": "What is a Wrapper Class? Explain its significance along with the concepts of Autoboxing and Autounboxing. (4 or 7 Marks) [link:4.2,t2]"
+        }
+      }
+    },
+    {
+      "topicId": "t3",
+      "title": "Tier 2: Frequently Asked Programs",
+      "details": {
+        "concept": "GTU typically loops a set of standard, logical coding questions in Section 1(c) or 2(c). Expect these exact programs to show up (7 Marks):",
+        "Important Programs": {
+          "1": "Command-Line Arguments Program: Write a program to fetch 10 numbers from the command line and determine the maximum or minimum value. [link:1,t8]",
+          "2": "Array Manipulation: Write a program to sort array elements in ascending order.",
+          "3": "Mathematical Patterns: Programs to print the Fibonacci series up to n terms or find the sum of the individual digits of an entered number.",
+          "4": "Custom Exceptions: Write a complete program that explicitly creates, raises, and handles a user-defined exception. [link:5.2,t9]",
+          "5": "Text File I/O Handling: Write a program utilizing FileInputStream and FileOutputStream to dynamically read from and write text characters into a .txt file. [link:7,t6]"
+        }
+      }
+    },
+    {
+      "topicId": "t4",
+      "title": "Tier 3: Important JavaFX Questions",
+      "details": {
+        "concept": "Since JavaFX is standard for the GUI portion of modern syllabi, prepare these targeted concepts (Expected 4-7 Marks):",
+        "Key Questions": {
+          "1": "Explain the basic structure of a JavaFX application, highlighting the hierarchical roles of Stage, Scene, and the Scene Graph. (7 Marks) [link:8.1,t5]",
+          "2": "List and briefly explain any four Layout Panes in JavaFX (specifically comparing GridPane, HBox, and VBox). (4 or 7 Marks) [link:8.1,t7]",
+          "3": "Explain the entire lifecycle of a JavaFX Application (init(), start(), stop()). (4 Marks) [link:8.1,t4]",
+          "4": "What is Property Binding in JavaFX? Explain with a simple code example. (4 Marks) [link:8.2,t2]"
+        }
+      }
+    },
+    {
+      "topicId": "t5",
+      "title": "Quick Strategy Tip for Your Exam",
+      "details": {
+        "concept": "When writing a GTU paper for OOP with Java, always write code snippets even if the question doesn't explicitly ask for a program. A 7-mark theory question on something like Dynamic Method Dispatch or Interfaces will automatically lose 2–3 marks if it lacks a supporting structural code demonstration!",
+        "Finally": "Good luck with your semester 4 preparation!"
+      }
+    }
+  ]
+}

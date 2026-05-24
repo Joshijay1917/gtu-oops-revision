@@ -2,17 +2,21 @@
 import { useState } from 'react';
 import styles from './Navbar.module.css';
 import oopData from '../../data/OOP.json';
+import oopImpData from '../../data/OOPIMP.json';
 
 interface NavbarProps {
-  onSelectTopic?: (unitId: number, topicId: string) => void;
+  onSelectTopic?: (unitId: number | string, topicId: string) => void;
 }
 
 export default function Navbar({ onSelectTopic }: NavbarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // Combine data
+  const allData = [oopImpData, ...oopData];
+
   // Flatten topics for search
-  const allTopics = oopData.flatMap(unit => 
+  const allTopics = allData.flatMap(unit => 
     unit.topics.map(topic => ({
       unitId: unit.unitId,
       unitTitle: unit.unitTitle,

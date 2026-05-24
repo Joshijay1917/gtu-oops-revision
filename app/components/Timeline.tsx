@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import styles from './Timeline.module.css';
 
 interface TimelineProps {
-  activeUnit: number;
-  setActiveUnit: (unit: number) => void;
-  units: number[];
+  activeUnit: number | string;
+  setActiveUnit: (unit: number | string) => void;
+  units: (number | string)[];
 }
 
 export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineProps) {
@@ -22,6 +22,19 @@ export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineP
             ? "M0,20 C30,0 70,0 100,20" 
             : "M0,20 C30,40 70,40 100,20";
           
+          const isImp = String(node).toLowerCase() === "imp";
+          
+          let fillColor = "rgba(30, 41, 59, 0.8)";
+          let strokeColor = "rgba(100, 116, 139, 0.5)";
+          
+          if (isActive) {
+            fillColor = isImp ? "rgba(220, 38, 38, 0.4)" : "rgba(30, 58, 138, 0.4)";
+            strokeColor = isImp ? "#ef4444" : "var(--glow-blue-intense)";
+          } else if (isImp) {
+            // Unselected state but with slight red hint
+            strokeColor = "rgba(239, 68, 68, 0.5)";
+          }
+
           return (
             <div key={node} className={styles.nodeWrapper}>
               <div 
@@ -32,25 +45,24 @@ export default function Timeline({ activeUnit, setActiveUnit, units }: TimelineP
                   <svg viewBox="0 0 48 54" className={styles.hexSvg}>
                     <polygon 
                       points="24,2 46,14.5 46,39.5 24,52 2,39.5 2,14.5" 
-                      fill={isActive ? "rgba(30, 58, 138, 0.4)" : "rgba(30, 41, 59, 0.8)"}
-                      stroke={isActive ? "var(--glow-blue-intense)" : "rgba(100, 116, 139, 0.5)"}
+                      fill={fillColor}
+                      stroke={strokeColor}
                       strokeWidth="2"
                     />
                   </svg>
                   <span 
-                    className={`${styles.nodeText} ${isActive ? styles.textActive : ''}`}
+                    className={`${styles.nodeText} ${isActive ? (isImp ? styles.textActiveRed : styles.textActive) : ''}`}
                     style={{ fontSize: String(node).length > 2 ? '0.95rem' : '1.25rem' }}
                   >
-                    {node}
+                    {String(node).toUpperCase()}
                   </span>
                 </div>
                 {isActive && (
                   <motion.div 
-                    layoutId="activeGlow"
-                    className={styles.glow}
+                    className={isImp ? styles.glowRed : styles.glow}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   />
                 )}
               </div>
