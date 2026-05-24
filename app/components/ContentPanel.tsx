@@ -47,6 +47,18 @@ export default function ContentPanel({ unitData, activeTopicId, setActiveTopicId
     }
   }, [unitData, activeTopicId, setActiveTopicId]);
 
+  useEffect(() => {
+    if (activeTopicId) {
+      // Small timeout to allow DOM to render the new unit first
+      setTimeout(() => {
+        const el = document.getElementById(`topic-${activeTopicId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+    }
+  }, [activeTopicId, unitData?.unitId]);
+
   if (!unitData) {
     return (
       <div className={styles.panelWrapper}>
@@ -170,7 +182,7 @@ export default function ContentPanel({ unitData, activeTopicId, setActiveTopicId
         {unitData.topics.map((topic) => {
           const isActive = activeTopicId === topic.topicId;
           return (
-            <div key={topic.topicId} className={styles.accordionItem}>
+            <div id={`topic-${topic.topicId}`} key={topic.topicId} className={styles.accordionItem}>
               <button 
                 className={`${styles.accordionHeader} ${isActive ? styles.accordionHeaderActive : ''}`}
                 onClick={() => setActiveTopicId(isActive ? '' : topic.topicId)}

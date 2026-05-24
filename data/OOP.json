@@ -819,7 +819,7 @@
           "types": "N/A",
           "syntax": "// Overloading: Same class, different parameters\n// Overriding: Inherited class, same parameters",
           "keywords": "comparison, compile-time, runtime",
-          "Important Thing": "Core Distinctions",
+          "Important Thing": "Overloading vs Overriding",
           "Important Thing Detail": {
             "1": {
               "c": "Used to increase program readability.",
