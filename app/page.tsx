@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Timeline from "./components/Timeline";
 import ContentPanel from "./components/ContentPanel";
+import SurveyModal from "./components/SurveyModal";
 import oopData from "../data/OOP.json";
 import oopImpData from "../data/OOPIMP.json";
 import styles from "./page.module.css";
@@ -13,6 +14,14 @@ const allData = [oopImpData, ...oopData];
 export default function Home() {
   const [activeUnit, setActiveUnit] = useState<number | string>(allData[0]?.unitId || "imp");
   const [activeTopicId, setActiveTopicId] = useState<string>(allData[0]?.topics[0]?.topicId || "t1");
+  const [showSurvey, setShowSurvey] = useState(false);
+  const [surveyAnswered, setSurveyAnswered] = useState(true); // default true to prevent flash
+
+  // Check localstorage on mount
+  useEffect(() => {
+    const answered = localStorage.getItem('surveyAnswered');
+    setSurveyAnswered(!!answered);
+  }, []);
 
   const currentUnitData = allData.find((u) => String(u.unitId) === String(activeUnit));
   const unitIds = allData.map((u) => u.unitId);
@@ -27,6 +36,14 @@ export default function Home() {
       />
       <main className={styles.main}>
         <div className={styles.header}>
+          {!surveyAnswered && (
+            <button 
+              className={`${styles.surveyBtn} ${styles.pulse}`}
+              onClick={() => setShowSurvey(true)}
+            >
+              Quick Question - Please Answer!
+            </button>
+          )}
           <h1 className={styles.title}>OBJECT-ORIENTED PROGRAMMING (OOP)</h1>
           <p className={styles.subtitle}>Revision Guide &bull; All Units</p>
         </div>
@@ -57,6 +74,17 @@ export default function Home() {
           />
         </div>
       </main>
+
+      {showSurvey && (
+        <SurveyModal 
+          onClose={() => setShowSurvey(false)} 
+          onComplete={() => {
+            setShowSurvey(false);
+            setSurveyAnswered(true);
+            localStorage.setItem('surveyAnswered', 'true');
+          }}
+        />
+      )}
     </div>
   );
 }
