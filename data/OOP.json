@@ -189,6 +189,26 @@
             "2": "Second is By Scanner Class: Scanner class helps to get user input by passing System.in as a constructor argument."
           }
         }
+      },
+      {
+        "topicId": "t9",
+        "title": "Differentiate between Object-Oriented Programming (OOP) and Procedure-Oriented Programming (POP)",
+        "details": {
+          "concept": "Programming paradigms define the structural approach to solving a problem. Procedure-Oriented Programming focuses on a sequence of functions or procedures operating on data, whereas Object-Oriented Programming models real-world entities by wrapping data and behavior together inside cohesive objects[cite: 1, 4].",
+          "benefits": "Understanding the core differences helps developers select the appropriate architectural design to ensure application scalability, security, and code reusability[cite: 4, 6].",
+          "types": "2 paradigms",
+          "syntax": "// POP Approach: Focus on global data and standalone functions\nvoid calculateArea(double radius) { }\n\n// OOP Approach: Focus on objects containing data and methods\nclass Circle {\n    private double radius;\n    public double getArea() { return radius * radius * Math.PI; }\n}",
+          "keywords": "paradigm, POP, OOP, procedures, data hiding, code reuse",
+          "Important Thing": "POP vs OOP",
+          "Important Thing Detail": {
+            "1": { "c": "Follows a Top-Down approach in program design.", "i": "Follows a Bottom-Up approach in program design." },
+            "2": { "c": "The main focus is on doing things, executing functions, and running sequential procedures.", "i": "The main focus is on data security, modeling real-world entities, and manipulating objects[cite: 1, 4]." },
+            "3": { "c": "Provides no direct data hiding capabilities; global data is accessible across various functions, making it less secure.", "i": "Enforces strict data hiding and encapsulation through access specifiers like private, protected, and public[cite: 1, 4]." },
+            "4": { "c": "Does not support native inheritance or polymorphism concepts, leading to lower code reusability.", "i": "Supports robust reusability and dynamic behavior through inheritance, interfaces, overloading, and overriding mechanisms[cite: 4]." },
+            "5": { "c": "Divided into small individual parts called functions or sub-processes.", "i": "Divided into highly cohesive, self-contained interactive units called objects[cite: 1, 4]." }
+          },
+          "diagram": "graph TD\n  subgraph POP [Procedure-Oriented: Top-Down]\n    MainProgram[Main Program] --> Func1(Function 1)\n    MainProgram --> Func2(Function 2)\n    Func1 & Func2 --> GlobalData[(Global Data Shared Unsafely)]\n  end\n  subgraph OOP [Object-Oriented: Bottom-Up]\n    Obj1[Object 1: Data + Methods Combined] <--> InteractivePipes((Secure Method Communication))\n    Obj2[Object 2: Data + Methods Combined] <--> InteractivePipes\n  end"
+        }
       }
     ]
   },

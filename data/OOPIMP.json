@@ -18,7 +18,7 @@
         "1. Java Foundations & Core Concepts": {
           "1": "What is Bytecode? Explain the architecture and key components of the Java Virtual Machine (JVM) in detail. (7 Marks) [link:1,t3]",
           "2": "List the prominent features of Java and explain any three. (3 or 4 Marks) [link:1,t2]",
-          "3": "Differentiate between Object-Oriented Programming (OOP) and Procedure-Oriented Programming (POP). (3 or 4 Marks) [link:1,t1]"
+          "3": "Differentiate between Object-Oriented Programming (OOP) and Procedure-Oriented Programming (POP). (3 or 4 Marks) [link:1,t9]"
         },
         "2. Classes, Objects, and Polymorphism": {
           "1": "What is a Constructor? Differentiate between Parameterized and Copy Constructors with individual code examples. (7 Marks) [link:3,t5]",
